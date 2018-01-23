@@ -1,4 +1,4 @@
-Feature: UnLoggedin User - Gifts
+Feature: Existing_User-Gifts.feature
   As a user of FORMED, I should be able to go to the homepage and
   assert that all the elements are there
 
@@ -7,7 +7,7 @@ Feature: UnLoggedin User - Gifts
 
 
   # from at document
-  Scenario: UnLoggedin User - Gifts
+  Scenario: Existing_User-Gifts.feature
     Then there is a home icon
     When Click on Login button
     When Enter Name and password for individual user2
