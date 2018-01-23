@@ -27,7 +27,7 @@ defineSupportCode(function ({registerHandler, registerListener, After, setDefaul
 
     registerHandler('BeforeFeature', async function () {
         await browser.restart();
-        await delay(10000);
+        await delay(5000);
         await browser.get(config.baseUrl);
         
     });
