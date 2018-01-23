@@ -13,26 +13,26 @@ export let config: Config = {
     // for windows:
     directConnect: false,
     
-    multiCapabilities: [{
-        'browserName': 'firefox',
+    //multiCapabilities: [{
+      //  'browserName': 'firefox',
         //'firefoxOptions': {
         // 'args': ['--headless']
-        },
+     //   },
       // 'moz:firefoxOptions': {
         //    'binary': '/var/lib/jenkins/workspace/Regression_tests/node_modules/webdriver-manager/selenium/geckodriver-v0.19.1/'
         // }},
-    {
-        'browserName': 'chrome'
-      }],
+   // {
+     //   'browserName': 'chrome'
+     // }],
      // {'browserName': 'internet explorer',
      //   'platform': 'ANY',
      //   'version': '11'
      // }],
    // seleniumArgs: ['-Dwebdriver.ie.driver=C:\Users\Yogi\ai-testing-master\node_modules\webdriver-manager\selenium\IEDriverServer.exe'],
     
-    //capabilities: {
-      //  browserName: 'chrome'
-    //},
+    capabilities: {
+        browserName: 'chrome'
+    },
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
 
