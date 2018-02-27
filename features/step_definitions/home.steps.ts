@@ -35,7 +35,764 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products.html']")).isDisplayed();    
         await delay(8000);
     });
+    When('I click on On Demand page', async () => {
+        await delay(8000);
+        element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).click();
+        await delay(12000);
+    });          
+	 When('On Demand page is displayed', async () => {	 
+	    element(by.xpath(".//*[@id='scroll-top']/div/div/div[2]/div")).isDisplayed();
+	});
+	When('I click on Learn more', async () => {
+        element(by.xpath("/*[@id='scroll-top']/div/div/div[2]/div/a/p")).click();	
+	});
 
+	When('video plays', async () => {
+	    element(by.xpath(".//*[@id='player']/div/div/div[3]")).isDisplayed();	
+	});	
+	When('i click on login button and enter username and password', async () => {	 
+	   element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
+        await delay(1000);
+        element(by.xpath("//input[@name='password']")).sendKeys("123456");
+        await delay(1000);
+        element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
+        await delay(5000);
+	 });
+	When('there is On demand , Library , market is displayed', async () => {
+	   
+        element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+	   
+	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).isDisplayed();   
+	   
+	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[3]/a")).isDisplayed();
+	
+	});
+	When('i click on Market page',async () => {
+	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+	});
+	 
+	When('Get credit link is displayed',async () => {
+	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
+	});
+	 
+	 When('i click on Get credits plan',async () => {
+	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();	 
+	});
+	When('Credit Plans page is displayed',async () => {
+	    element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[2]")).isDisplayed();	 
+	});
+	 
+	When('i click on cart icon when there are no items in cart', async () => {
+	
+	    element(by.xpath(".//*[@id='ui-id-1']")).click();
+	    await delay(1000);                 
+    });
+	When('cart page is displayed',async () => {
+	
+	    element(by.xpath(" .//*[@id='minicart-content-wrapper']/div/strong")).isDisplayed();
+	    await delay(1000);                 
+    });
+	 
+	  
+	When('i move to Digital products',async () => {
+	    browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+        await delay(5000);
+	});
+
+	When('Digital products drop down list is displayed',async () => {
+	 
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await delay(5000);
+		
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+
+        await delay(5000);
+		
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[3]/div/a"))).to.eventually.exist;
+
+		await delay(5000);
+	});
+	 
+	When('i navigate to market page to serach for search button',async () => {
+        element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+	});
+						  
+	When('search icon is displayed', async () => {
+	 
+       element(by.xpath(".//*[@id='search_mini_form']/div[1]/div/label/span[1]")).isDisplayed();
+    });   
+	   
+	When('i click on market button', async () => {
+	  
+	   element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+	});
+	  
+	  
+	When('Special offers are displayed', async () => {
+	    await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/h1[1]"))).to.eventually.exist;
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]/h3v"))).isDisplayed();	
+		await expect(browser.indElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[2]"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[2]/div"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[3]"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[3]/div"))).isDisplayed();	
+	
+        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/h1[2]"))).to.eventually.exist;
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[1]"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[1]/div"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[2]"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[2]/div"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[3]"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[3]/div[1]"))).isDisplayed();	
+		
+	});
+	   
+	   
+	When('i click on Terms of use',async () => {
+	 
+	                      
+       element(by.xpath("html/body/main/div/footer/div/div/ul/li[1]/a")).click();   
+	});
+	   
+	   
+	When('terms of use is displayed',async () => {
+        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/h1"))).isDisplayed();	
+	});  
+	   
+	When('i click on privacy policy', async () => {
+	    element(by.xpath("html/body/main/div/footer/div/div/ul/li[2]/a")).click();
+	   
+	});
+	When('privacy policy page is displayed',async () => {
+	 
+        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/h1"))).isDisplayed();
+	});
+	   
+	When('i click on help', async () => {
+	 
+	                      
+        element(by.xpath("html/body/main/div/footer/div/div/ul/li[3]/a")).click();
+	});
+	When('help page is displayed', async () => {
+	 
+	   
+        await expect(browser.findElement(by.xpath("html/body/div[1]/section"))).isDisplayed();
+	});  
+	   
+	When('i move to digital products', async () => {
+	 
+	    browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+        await delay(5000);
+	});
+	When('mega-menu is displayed', async () => {
+		
+	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await delay(5000);
+		
+        await expect(browser.findElement(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a"))).isDisplayed();	
+
+		
+		
+		
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a"))).isDisplayed();	
+								  
+
+        await delay(5000);
+						  
+    });
+						  
+    When('i click on search icon and enter text', async () => {
+	 
+	   element(by.xpath(".//*[@id='search']")).sendKeys("Listen");
+	                      
+       element(by.xpath(".//*[@id='search_mini_form']/div[1]/div/label/span[1]")).click();
+	});
+	   
+	When('results page is displayed', async () => {
+			 
+			 
+       element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/p/a/span")).isDisplayed();
+			 
+	});
+	
+	   
+	   
+	  
+	When('unlogged in user on clicking on demand', async () => {
+	   
+	   
+        element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+	   
+	    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+	    
+		element(by.xpath(" html/body/header/section[1]/div[2]/ul/li[1]/a")).click();
+	});
+		
+	When('on demand page with enter free trail , enter code , Sign up group is displayed',async () => {
+
+		
+        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/registration-column/modal-link/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[3]/registration-column/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[4]/registration-column/a"))).isDisplayed();	
+		
+		
+	});
+	   
+	   
+	When('i click on library page if there is no content', async () => {
+	   
+                         
+	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).click();
+				   
+				   
+	});
+
+	When('your library is empty and some message is displayed', async () => {
+	   
+        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/h1"))).isDisplayed();	
+                      
+        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/p"))).isDisplayed();	
+	   
+	});
+       
+	When('i click on market page and move to Digital products',async () => {
+		 
+	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+		  
+	
+	});
+	When('menu elements are displayed',async () => {
+		 
+		  
+	    browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+        await delay(5000);
+		
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await delay(5000);
+		
+        await expect(browser.findElement(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a"))).isDisplayed();	
+		
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a"))).isDisplayed();	
+        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a"))).isDisplayed();	
+	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a"))).isDisplayed();	
+		await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a"))).isDisplayed();	
+								  
+
+        await delay(5000);
+						  
+	});	   
+	   
+	When('i click on login button and enter username and password', async () => {
+        element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
+        await delay(1000);
+        element(by.xpath("//input[@name='password']")).sendKeys("123456");
+        await delay(1000);
+        element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]']")).click();
+        await delay(5000);
+	});
+	When('there is On demand , Library , market is displayed	', async () => {
+	   
+	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+	   
+	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).isDisplayed();
+	   
+	   
+	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[3]/a")).isDisplayed();
+	
+	});
+	   
+	   
+	When('an unlogged in user enters home page', async () => {
+	   
+	    element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+	    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+		
+    });
+		
+	When('Formed icon is displayed', async () => {
+	   
+		
+	    element (by.xpath("html/body/header/section[1]/div[1]/strong/span")).to.eventually.exist;
+		
+	    element (by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
+		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
+		   
+	});
+	   
+	   
+	When('i click on market side user name drop down', async () => {
+        
+	    element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
+        await delay(1000);
+        element(by.xpath("//input[@name='password']")).sendKeys("123456");
+        await delay(1000);
+        element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]']")).click();
+        await delay(5000);
+						  
+						  
+	      element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+	});
+		  
+	When('account, Subscription ,Logout are displayed', async () => {
+        
+		element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='account-dropdown']/div/a[2]")).isDisplayed();
+		
+		
+		element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).isDisplayed();
+		
+		
+		
+	});
+	   
+	
+    When('i click on Formed side user name drop down', async () => {
+		  
+		element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).click();
+		  
+	});
+		  
+    When('account, Account , Subscription are displayed', async () => {
+		  
+	    browser.actions().mouseMove(element(by.xpath(".//*[@id='account-dropdown-button']"))).click();
+		   
+		   
+		element(by.xpath(".//*[@id='header']/div/div/div/div/ul/profile-menu/div/div/div/div/div[2]/a[1]")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='header']/div/div/div/div/ul/profile-menu/div/div/div/div/div[2]/a[2]")).isDisplayed();
+		
+		
+		element(by.xpath(".//*[@id='header']/div/div/div/div/ul/profile-menu/div/div/div/div/div[2]/a[3]")).isDisplayed();
+			
+	   
+	});
+	   
+	   
+	When('i click on library link and there is no content', async () => {
+	   
+                         
+	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).click();
+    });
+				
+	When('your library is  empty and some message is displayed',async () => {
+	      
+        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/h1"))).isDisplayed();	
+                      
+        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/p"))).isDisplayed();	
+	   
+	});
+	   
+	When('i navigate to market page and click on Get credits plan', async () => {
+	   
+                         
+	    element(by.xpath("html/body/header/section[1]/div[8]/div/a/span")).click();
+				   
+	});
+				   
+				   
+	When('credits plan page is displayed', async () => {
+	   
+        await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/h1"))).isDisplayed();	
+                      	
+	   
+	});
+	   
+	// I can't find here where is credit balance
+	   
+	//I can't find the page when library items  are purchased
+	   
+	   
+	When('navigate to account name and see whether user name is in caps', async () => {
+	   
+	   
+	    browser.actions().mouseMove(element(by.xpath(".//*[@id='account-dropdown-button']"))).click();
+	   
+	});
+	When('username displays in all caps', async () => {
+	   
+	   
+	    element(by.xpath(".//*[@id='account-dropdown-button']")).isDisplayed();
+				 
+				 
+	});
+				 
+	   
+	When('i search  a Formed icon for a loggedin user', async () => {
+	   
+	   element(by.xpath("html/body/header/section[1]/div[1]/a/span")).to.eventually.exist;
+	   
+    });
+	   
+	When ('i navigate to Account drop down and click on logout', async () => {
+		
+	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+	   
+	                    
+	    element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+	   
+	    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+					 
+	});
+					 
+	When ('Home page is displayed', async () => {
+		
+	    element(by.xpath(" html/body/header/section[1]/div[1]/strong/span")).isDisplayed();
+	});		 
+	When('i click on login button to verify for forgot password', async  () => {
+	  
+        element(by.xpath(".//*[@id='login-dropdown-button']")).click();
+        
+        });
+        When('forgot password is displayed', async  () => {
+        
+       
+      element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[3]/a")).isDisplayed();
+          
+       });
+      
+       When('i Enter Name and password for individual user', async () => {
+       
+          element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
+          await delay(1000);
+          element(by.xpath("//input[@name='password']")).sendKeys("123456");
+          await delay(1000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]']")).click();
+          await delay(5000);
+         });
+         When('Login page is displayed', async () => {
+         
+         element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+      
+      });
+      
+      When('i click on market', async () => {
+      
+      
+           
+          element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+          
+          });
+          
+      When('there is get credit plan', async () => {
+          element(by.xpath("html/body/header/section[1]/div[8]/div/a/span")).isDisplayed();
+      
+      });
+      When('a user without get credit plan click on shopping product', async () => {
+      
+          element(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]")).click();
+          element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[2]/div[3]/div/span/button")).isDisplayed();
+          
+          });
+          
+      When('i click on get credits plan', async () => {
+      
+      
+      element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+      
+      });
+      
+      When('get credits plan link is displayed', async () => {
+      
+      element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[2]")).isDisplayed();
+      
+      });
+      
+      
+      When('i click on user name drop down', async () => {
+      
+      
+      element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+      });
+      
+      
+      When('then account is displayed', async () => {
+      
+         
+      element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).isDisplayed();
+      
+      });
+          When('i click on account', async () => {
+      
+         
+      element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
+      
+      });
+          When('then credits plan is displayed', async () => {
+      
+         
+      
+      element(by.xpath(".//*[@id='account-nav']/ul/li[7]/a")).isDisplayed();
+      });	
+      When('i click on Tv SHOWS', async () => {
+	
+	  
+        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+		
+		
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a")).click();
+		
+		});
+		When('Tv Shows page is displayed', async () => {
+	
+	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]")).isDisplayed();	
+		});
+		
+	      When('i click on Item', async () => {
+	 
+	 
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1] ")).click();
+		
+		});
+		When('Product detailed page is displayed', async () => {
+		
+		
+        element(by.xpath(".//*[@id='product__description']")).isDisplayed();
+		
+        element(by.xpath(".//*[@id='related__items']/div[1]/h2")).isDisplayed();
+		
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[1]/div/img ")).isDisplayed();
+	 
+		});	
+		 When('i click on Add to cart', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='product-addtocart-button']")).click();
+		
+
+	 
+	 });
+	 
+	 	 When('Product is added to cart and is displayed in Cart drop down', async () => {
+	 
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+	 
+        element(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]")).isDisplayed();
+	 
+	 });
+	 
+	 	 When('i click on Add to cart for two products', async () => {
+	 
+	 
+          element(by.xpath(".//*[@id='ui-id-1']")).click();
+	
+
+	 
+	 });
+	 When('carts counter is increased', async () => {
+	 
+	 
+        element(by.xpath("html/body/header/section[1]/div[7]/div/a/span[2]/span[1]")).isDisplayed();
+	 
+	 });
+	 
+	  When('i click on cart to search for title,thumbnail,Producer,Delete, checkout button', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+	
+	 
+	 });
+	 	 When('Cart displayed with following items', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[1]/a")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[2]")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='top-cart-btn-checkout']")).isDisplayed();
+			     
+	 
+     });	
+     When('i enter home page then library link is between market and on demand page', async () => {
+	 
+	 
+	 
+        element(by.xpath("/html/body/header/section[1]/div[1]/strong/span")).click();
+	 
+	 });
+	 
+	 When('library link is displaying in between', async () => {
+	 
+	 
+	 
+        element(by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
+	 
+	 });
+	 
+	 
+	 When('i move to shops products', async () => {
+	 
+	 
+	 
+        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+	 
+	 
+	 });
+	 	 
+	 When('study,watch,listen,products are displayed', async () => {
+	 
+	 
+	 
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a")).isDisplayed();
+		
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/div/a")).isDisplayed();
+	    
+		
+        element(by.xpath("")).isDisplayed();
+		
+		
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/h1")).isDisplayed();
+	 
+	 });
+	 
+	 
+	 When('i click on Watch', async () => {
+	 
+	    
+        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+        element(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a ")).click();
+	 });
+	 
+	 
+	 
+	 When('videos are shown', async () => { 
+	 
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/h1")).isDisplayed();
+	 });	 
+	When('i Serach for rental count down', async () => {                 	 
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img")).click();
+	});	 
+	 
+	When('Rental count down is displayed on the video', async () => {                 	 
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[1]/div/img")).isDisplayed();
+	 });
+	When('i click on audio dramas', async () => {
+	  
+        browser.actions().mouseMove(element(by.xpath(".//*[@id='amasty-shopby-product-list']/h1"))).perform();
+		
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a")).click();
+		
+	});
+		
+		 When('Audio dramas page is displayed', async () => {
+		 
+		 
+	     
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/h1")).isDisplayed();
+		
+	});
+	When('i click on Listen page', async () => {
+	 
+	 
+        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
+		
+        element(by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).click();
+	});
+	
+	When('Listen page is displayed', async () => {
+
+	  
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/h1")).isDisplayed();
+	 
+    });		
+    When('i click on Item', async () => {
+	 
+	 
+        element(by.xpath(" .//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img ")).click();
+		
+		});
+		When('Product detailed page is displayed', async () => {
+		
+		
+        element(by.xpath(".//*[@id='product__description']/div[1]")).isDisplayed();
+		
+        element(by.xpath(".//*[@id='related__items']/div[1]/h2")).isDisplayed();
+		
+        element(by.xpath(" .//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[1]/div/img ")).isDisplayed();
+	 
+		});	
+		
+		
+		When('i click on Add to cart for confirmation message', async () => {    
+		
+        element(by.xpath(".//*[@id='product-addtocart-button']")).click();    
+		
+        await delay(15000);
+       }); 
+	   
+       When('Confirmation message is displayed', async () => {        
+	   
+        element(by.linkText("    ")).isDisplayed();    
+		
+    });
+		
+	 When('  i click on Add to cart', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='product-addtocart-button']")).click();
+		
+
+	 
+	 });
+	 
+	 	 When('Product is added to cart and is displayed in Cart drop down', async () => {
+	 
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+	 
+        element(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]")).isDisplayed();
+	 
+	 });
+	 
+	 	 When('  i click on Add to cart for two products', async () => {
+	 
+	 
+          element(by.xpath(".//*[@id='ui-id-1']")).click();
+	
+
+	 
+	 });
+	 When('carts counter is increased', async () => {
+	 
+	 
+        element(by.xpath("html/body/header/section[1]/div[7]/div/a/span[2]/span[1]")).isDisplayed();
+	 
+	 });
+	 
+	  When('i click on cart to search for title,thumbnail,Producer,Delete, checkout button', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+	
+	 
+	 });
+	 	 When(' Cart displayed with following items', async () => {
+	 
+	 
+        element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[1]/a")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[2]")).isDisplayed();
+		
+		element(by.xpath(".//*[@id='top-cart-btn-checkout']")).isDisplayed();
+			     
+	 
+	 }); 
     When('Show products link is hovered', async () => {
         browser.actions().mouseMove(element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products.html']"))).perform();
         await delay(5000);
