@@ -19,6 +19,16 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("/html/body/header/section[1]/div[1]/strong/span")).click;
         await delay(5000);
     });
+	When('Formed icon is displayed in home page', async () => {
+	   
+		
+	    element (by.xpath("html/body/header/section[1]/div[1]/strong/span")).to.eventually.exist;
+		
+	    element (by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
+		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
+		   
+	});
     Then('there is a home icon', async () => {
         
         await expect(browser.getTitle()).to.eventually.contain("FORMED");
