@@ -50,14 +50,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('video plays', async () => {
 	    element(by.xpath(".//*[@id='player']/div/div/div[3]")).isDisplayed();	
 	});	
-	When('i click on login button and enter username and password', async () => {	 
-	   element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
-        await delay(1000);
-        element(by.xpath("//input[@name='password']")).sendKeys("123456");
-        await delay(1000);
-        element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
-        await delay(5000);
-	 });
+	
 	When('there is On demand , Library , market is displayed', async () => {
 	   
         element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
@@ -554,22 +547,8 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]")).isDisplayed();	
 		});
 		
-	      When('i click on Item', async () => {
-	 
-	 
-        element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1] ")).click();
+	      
 		
-		});
-		When('Product detailed page is displayed', async () => {
-		
-		
-        element(by.xpath(".//*[@id='product__description']")).isDisplayed();
-		
-        element(by.xpath(".//*[@id='related__items']/div[1]/h2")).isDisplayed();
-		
-        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[1]/div/img ")).isDisplayed();
-	 
-		});	
 		 When('i click on Add to cart', async () => {
 	 
 	 
@@ -579,14 +558,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	 
 	 });
 	 
-	 	 When('Product is added to cart and is displayed in Cart drop down', async () => {
-	 
-        element(by.xpath(".//*[@id='ui-id-1']")).click();
-	 
-        element(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]")).isDisplayed();
-	 
-	 });
-	 
+	 	
 	 	 When('i click on Add to cart for two products', async () => {
 	 
 	 
@@ -595,21 +567,7 @@ defineSupportCode(function ({Given, Then, When}) {
 
 	 
 	 });
-	 When('carts counter is increased', async () => {
-	 
-	 
-        element(by.xpath("html/body/header/section[1]/div[7]/div/a/span[2]/span[1]")).isDisplayed();
-	 
-	 });
-	 
-	  When('i click on cart to search for title,thumbnail,Producer,Delete, checkout button', async () => {
-	 
-	 
-        element(by.xpath(".//*[@id='ui-id-1']")).click();
-	
-	 
-	 });
-	 	 When('Cart displayed with following items', async () => {
+	  When('Cart displayed with following items', async () => {
 	 
 	 
         element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[1]/a")).isDisplayed();
