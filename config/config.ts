@@ -47,7 +47,7 @@ export let config: Config = {
         browser.ignoreSynchronization = true;
         browser.ignoreUncaughtExceptions =  true;
         browser.waitForAngularEnabled(false);
-        browser.sleep(500);
+        browser.sleep(5000);
         let oldreport = process.cwd() +"/.tmp/report/index.html";
         var now = new Date();
         
