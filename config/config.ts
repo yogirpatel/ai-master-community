@@ -4,7 +4,7 @@ import * as fs from 'fs-extra';
 export let config: Config = {
     baseUrl: process.env['PTOR_BASE_URL'] || 'https://market.beta.formed.org',
     getPageTimeout: 60000,
-    allScriptsTimeout: 500000,
+    allScriptsTimeout: 1000000,
     rootElement: 'body',
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 
