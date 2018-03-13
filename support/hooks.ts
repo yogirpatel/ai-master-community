@@ -1,6 +1,6 @@
 const Cucumber = require('cucumber');
 import {browser} from 'protractor';
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import {config} from '../config/config';
 import {defineSupportCode} from "cucumber";
 
@@ -18,16 +18,26 @@ chai.use(chaiAsPromised);
 export const expect:any = chai.expect;
 
 
-
-defineSupportCode(function ({registerHandler, registerListener, After, setDefaultTimeout}) {
+defineSupportCode(function ({registerHandler, registerListener, After,Before, setDefaultTimeout}) {
     setDefaultTimeout(50 * 1000);
+    let oldreport = process.cwd() +"/.tmp/report/index.html";
+    let dates = Date.now.toString();
+    
+    let time = Date.now.toString();
+    
+    let reportname = dates+time;
+        let __dirname = process.cwd() +"/.tmp/report/";
+        if(fs.existsSync(oldreport)) {
+            fs.copySync(__dirname,'./oldReports');
+            fs.unlinkSync(oldreport);
+        }
     let jsonReports = process.cwd() + "/reports/json";
     let htmlReports = process.cwd() + "/reports/html";
     let targetJson = jsonReports + "/cucumber_report.json";
 
     registerHandler('BeforeFeature', async function () {
         await browser.restart();
-        await delay(5000);
+        await delay(10000);
         await browser.get(config.baseUrl);
         
     });
@@ -36,7 +46,9 @@ defineSupportCode(function ({registerHandler, registerListener, After, setDefaul
     
         
     });
+    
     After(async function (scenarioResult) {
+        
         let world = this;
         if (scenarioResult.isFailed()) {
             let screenShot = await browser.takeScreenshot();
