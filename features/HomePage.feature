@@ -8,39 +8,39 @@ Feature: This file will test the home page
 
   # from at document
   Scenario: FORMED Landing Page  
-	When I click on On Demand page
+    When I click on On Demand page
     Then there is a home icon
-	Then On Demand page is displayed
-	When I click on Learn more
-	Then video plays
-	Given I navigate to "/"
+    Then On Demand page is displayed
+    When I click on Learn more
+    Then video plays
+    Given I navigate to "/"
     When i click on login button to verify for forgot password
     Then forgot password is displayed
     When i Enter Name and password for individual user
     Then there is On demand , Library , market is displayed
-	When i click on Market page
-	Then Get credit link is displayed
-	When i click on get credits plan
-	Then Credit Plans page is displayed
-	When i click on cart icon when there are no items in cart
-	Then cart page is displayed
+    When i click on Market page
+    Then Get credit link is displayed
+    When i click on get credits plan
+    Then Credit Plans page is displayed
+    When i click on cart icon when there are no items in cart
+    Then cart page is displayed
     When i move to Digital products
-	Then Digital products drop down list is displayed
-	When i navigate to market page to serach for search button
-	Then search icon is displayed
-	When i click on market button
-	Then Special offers are displayed
-	When i click on Terms of use
-	Then terms of use is displayed
-	When i click on privacy policy
-	Then privacy policy page is displayed
-	When i click on help
-	Then help page is displayed
-	When i move to Digital products
-	Then mega-menu is displayed
-	When i click on search icon and enter text
-	Then results page is displayed
-	When unlogged in user on clicking on demand
+    Then Digital products drop down list is displayed
+    When i navigate to market page to serach for search button
+    Then search icon is displayed
+    When i click on market button
+    Then Special offers are displayed
+    When i click on Terms of use
+    Then terms of use is displayed
+    When i click on privacy policy
+    Then privacy policy page is displayed
+    When i click on help
+    Then help page is displayed
+    When i move to Digital products
+    Then mega-menu is displayed
+    When i click on search icon and enter text
+    Then results page is displayed
+    When unlogged in user on clicking on demand
     Then on demand page with enter free trail , enter code , Sign up group is displayed
     When i click on library page if there is no content
     Then your library is empty and some message is displayed
@@ -57,14 +57,14 @@ Feature: This file will test the home page
     When i click on library link and there is no content 
     Then your library is  empty and some message is displayed
     When i navigate to market page and click on Get credits plan
-	Then credits plan page is displayed
-	When navigate to account name and see whether user name is in caps 
-	Then username displays in all caps
-	When i search  a Formed icon for a loggedin user
-	Then Formed icon is displayed
-	When i navigate to Account drop down and click on logout
-	Then Home page is displayed
-
+    Then credits plan page is displayed
+    When navigate to account name and see whether user name is in caps 
+    Then username displays in all caps
+    When i search  a Formed icon for a loggedin user
+    Then Formed icon is displayed
+    When i navigate to Account drop down and click on logout
+    Then Home page is displayed
+    Then i click on account and logout
 
 
 
