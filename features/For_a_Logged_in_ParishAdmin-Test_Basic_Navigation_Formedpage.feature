@@ -41,3 +41,4 @@ Feature: For a Logged in ParishAdmin-Test Basic Navigation Formedpage
     Then Click on Fiction and Verify with parish admin
     Then Click on Read Youth and Verify with parish admin
     Then Click on Read espanol and Verify with parish admin
+    Then i click on account and logout for parish
