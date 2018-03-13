@@ -527,6 +527,14 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
         await delay(5000);
       });
+      Then('i click on account and logout for parish', async () => {
+      
+        await delay(5000);
+        element(by.xpath(".//*[@id='account-dropdown']")).click();
+        await delay(2000);
+        element(by.xpath(".//*[@id='account-dropdown']/div/a[4]")).click();
+        await delay(5000);
+      });
     When('get credits plan is displayed', async () => {
       
          
