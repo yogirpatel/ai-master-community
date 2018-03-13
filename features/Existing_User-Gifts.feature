@@ -23,3 +23,4 @@ Feature: Existing_User-Gifts.feature
     Then Enter Billing Information
     Then Enter Payment Menthod
     Then Order Confirmation is displayed
+    Then i click on account and logout
