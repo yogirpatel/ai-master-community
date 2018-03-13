@@ -38,3 +38,4 @@ Feature: For a Logged in ParishAdmin-Test Basic Navigation Marketpage
     Then Click on watch Link and Verify
     When Show products link is hovered
     Then Click on Listen Link and Verify
+    Then i click on account and logout for parish
