@@ -2,9 +2,9 @@ import {browser, Config} from 'protractor';
 import * as fs from 'fs-extra';
 
 export let config: Config = {
-    baseUrl: process.env['PTOR_BASE_URL'] || 'https://beta.formed.org',
+    baseUrl: process.env['PTOR_BASE_URL'] || 'https://market.beta.formed.org',
     getPageTimeout: 60000,
-    allScriptsTimeout: 500000,
+    allScriptsTimeout: 1000000,
     rootElement: 'body',
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 
@@ -43,20 +43,21 @@ export let config: Config = {
     ],
 
     onPrepare: () => {
-        browser.executeScript('return !!window.angular');
-        browser.ignoreSynchronization = true;
-        browser.ignoreUncaughtExceptions =  true;
-        browser.waitForAngularEnabled(false);
-        browser.sleep(500);
         let oldreport = process.cwd() +"/.tmp/report/index.html";
         var now = new Date();
         
         var logfile_name = "index-"+ now.getFullYear() + "-"+ now.getMonth() + "-" + now.getDay()+"-"+now.getHours()+"-"+now.getMinutes()+"-"+now.getSeconds() +'.html';
         let __dirname = process.cwd();
         if(fs.existsSync(oldreport)) {
-            fs.copySync(oldreport,__dirname+"/archive-Reports/"+logfile_name);
+            fs.copySync(oldreport,__dirname +"/archive-Reports/"+logfile_name);
             fs.unlinkSync(oldreport);
         }
+        browser.executeScript('return !!window.angular');
+        browser.ignoreSynchronization = true;
+        browser.ignoreUncaughtExceptions =  true;
+        browser.waitForAngularEnabled(false);
+        browser.sleep(500);
+        
         browser.manage().window().setSize(1600, 1000);
     },
     cucumberOpts: {
