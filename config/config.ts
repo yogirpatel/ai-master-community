@@ -2,7 +2,7 @@ import {browser, Config} from 'protractor';
 import * as fs from 'fs-extra';
 
 export let config: Config = {
-    baseUrl: process.env['PTOR_BASE_URL'] || 'https://beta.formed.org',
+    baseUrl: process.env['PTOR_BASE_URL'] || 'https://market.beta.formed.org',
     getPageTimeout: 60000,
     allScriptsTimeout: 1000000,
     rootElement: 'body',
