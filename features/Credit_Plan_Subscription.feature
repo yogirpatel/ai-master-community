@@ -20,6 +20,6 @@ Feature: This file will test the Credit Plan Subscription
   Then then account is displayed
   When i click on account
   Then get credits plan is displayed
-  
+  Then i click on account and logout  
 
 
