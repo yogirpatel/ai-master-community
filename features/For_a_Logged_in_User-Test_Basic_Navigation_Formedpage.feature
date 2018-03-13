@@ -29,3 +29,4 @@ Feature: For a Logged in User-Test Basic Navigation Formedpage
     Then Click on espanol Listen Link and Verify
     When Show products link is hovered
     Then Click on gifts Link and Verify
+    Then i click on account and logout
