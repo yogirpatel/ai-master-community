@@ -27,3 +27,4 @@ Feature: Existing_User-card1-Gifts
     Then Click on account
     Then Click on Your orders
     Then Order Details is displayed
+    Then i click on account and logout
