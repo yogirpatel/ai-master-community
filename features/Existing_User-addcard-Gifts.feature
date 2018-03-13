@@ -21,3 +21,4 @@ Feature: Existing_User-addcard-Gifts
     Then Click on Checkout in Cart Summary
     Then Enter CVV
     Then Order Confirmation is displayed
+    Then i click on account and logout
