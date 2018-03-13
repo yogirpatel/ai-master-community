@@ -7,13 +7,16 @@ Feature: This file will test the home page
 
 
   # from at document
-  Scenario: FORMED Landing Page
-    Then there is a home icon
+  Scenario: FORMED Landing Page  
 	When I click on On Demand page
+    Then there is a home icon
 	Then On Demand page is displayed
 	When I click on Learn more
 	Then video plays
-    When i click on login button and enter username and password
+	Given I navigate to "/"
+    When i click on login button to verify for forgot password
+    Then forgot password is displayed
+    When i Enter Name and password for individual user
     Then there is On demand , Library , market is displayed
 	When i click on Market page
 	Then Get credit link is displayed
