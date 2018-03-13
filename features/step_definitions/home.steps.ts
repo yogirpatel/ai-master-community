@@ -41,7 +41,10 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("//a[@href='https://market.beta.formed.org']")).click();
         await delay(12000);
     });
-    
+    When('navigate to market page path', async () => {
+        await browser.get("https://market.beta.formed.org");
+        await delay(15000);
+    });
     Then('Show products link is displayed', async () => {
         element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products.html']")).isDisplayed();    
         await delay(8000);
@@ -516,6 +519,14 @@ defineSupportCode(function ({Given, Then, When}) {
       element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
       await delay(10000);
     });
+    Then('i click on account and logout', async () => {
+      
+        await delay(5000);
+        element(by.xpath(".//*[@id='account-dropdown']")).click();
+        await delay(2000);
+        element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+        await delay(5000);
+      });
     When('get credits plan is displayed', async () => {
       
          
@@ -982,7 +993,7 @@ defineSupportCode(function ({Given, Then, When}) {
     When('Click on annual formed subscription', async () => {
         browser.navigate().refresh();
         await delay(15000);
-        element(by.xpath("//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).click();
+        element(by.xpath(".//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).click();
         //element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/div/strong/a")).click();
         await delay(2000);
         browser.navigate().refresh();
