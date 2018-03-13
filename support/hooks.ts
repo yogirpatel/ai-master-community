@@ -20,17 +20,7 @@ export const expect:any = chai.expect;
 
 defineSupportCode(function ({registerHandler, registerListener, After,Before, setDefaultTimeout}) {
     setDefaultTimeout(50 * 1000);
-    let oldreport = process.cwd() +"/.tmp/report/index.html";
-    let dates = Date.now.toString();
-    
-    let time = Date.now.toString();
-    
-    let reportname = dates+time;
-        let __dirname = process.cwd() +"/.tmp/report/";
-        if(fs.existsSync(oldreport)) {
-            fs.copySync(__dirname,'./oldReports');
-            fs.unlinkSync(oldreport);
-        }
+ 
     let jsonReports = process.cwd() + "/reports/json";
     let htmlReports = process.cwd() + "/reports/html";
     let targetJson = jsonReports + "/cucumber_report.json";
