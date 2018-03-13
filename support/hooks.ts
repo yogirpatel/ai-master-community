@@ -25,17 +25,7 @@ defineSupportCode(function ({registerHandler, registerListener, After,Before, se
     let htmlReports = process.cwd() + "/reports/html";
     let targetJson = jsonReports + "/cucumber_report.json";
 
-    registerHandler('BeforeFeature', async function () {
-        await browser.restart();
-        await delay(10000);
-        await browser.get(config.baseUrl);
-        
-    });
-    registerHandler('AfterFeature', async function () {
-        browser.close();
     
-        
-    });
     
     After(async function (scenarioResult) {
         
