@@ -13,6 +13,7 @@ defineSupportCode(function ({Given, Then, When}) {
     Given('I navigate to {path}', async (path: string) => {
         
         await browser.get(path);
+        await delay(15000);
     });
     Then('navigate to formed page', async () => {
         
@@ -47,14 +48,14 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('I click on On Demand page', async () => {
         await delay(8000);
-        element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).click();
+        element(by.xpath(".//a[@href='https://beta.formed.org/']")).click();
         await delay(12000);
     });          
 	 When('On Demand page is displayed', async () => {	 
 	    element(by.xpath(".//*[@id='scroll-top']/div/div/div[2]/div")).isDisplayed();
 	});
 	When('I click on Learn more', async () => {
-        element(by.xpath("/*[@id='scroll-top']/div/div/div[2]/div/a/p")).click();	
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[2]/div/a/p")).click();	
 	});
 
 	When('video plays', async () => {
@@ -104,16 +105,9 @@ defineSupportCode(function ({Given, Then, When}) {
 
 	When('Digital products drop down list is displayed',async () => {
 	 
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        await expect(browser.findElement(by.xpath("//a[@href='https://market.beta.formed.org/shop-products.html']"))).to.eventually.exist;
         await delay(5000);
 		
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
-
-        await delay(5000);
-		
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[3]/div/a"))).to.eventually.exist;
-
-		await delay(5000);
 	});
 	 
 	When('i navigate to market page to serach for search button',async () => {
@@ -462,81 +456,67 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='login-dropdown-button']")).click();
         
         });
-        When('forgot password is displayed', async  () => {
-        
-       
-      element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[3]/a")).isDisplayed();
-          
-       });
-      
-       When('i Enter Name and password for individual user', async () => {
-       
-          element(by.xpath("//input[@name='email']")).sendKeys("rajeshnakka.cmc@gmail.com");
+    When('forgot password is displayed', async  () => {    
+      await delay(1000);  
+      element(by.xpath(".//*[@class='forgotPassword']")).isDisplayed();
+      //element(by.xpath("html/body/header/section[1]/div[6]/ul/li/div/div/div/div/div/div/div/div/div[2]/div/form/div/div[3]/a")).isDisplayed();
+         
+    });
+    When('i Enter Name and password for individual user', async () => {
+        await delay(5000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[1]/input")).sendKeys("rajeshnakka.cmc@gmail.com");
           await delay(1000);
-          element(by.xpath("//input[@name='password']")).sendKeys("123456");
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[2]/input")).sendKeys("123456");
           await delay(1000);
-          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]']")).click();
-          await delay(5000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]")).click();
+          await delay(15000);
          });
-         When('Login page is displayed', async () => {
-         
-         element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+    When('Login page is displayed', async () => {    
+         element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();  
+    });
       
-      });
-      
-      When('i click on market', async () => {
-      
-      
-           
-          element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+    When('i click on market', async () => {
+          element(by.xpath(".//a[@href='https://market.beta.formed.org/']")).click();
+          await delay(15000);
+    });
           
-          });
-          
-      When('there is get credit plan', async () => {
+    When('there is get credit plan', async () => {
           element(by.xpath("html/body/header/section[1]/div[8]/div/a/span")).isDisplayed();
+          await delay(10000);
+    });
+    When('a user without get credit plan click on shopping product', async () => {
       
-      });
-      When('a user without get credit plan click on shopping product', async () => {
-      
-          element(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]")).click();
-          element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[2]/div[3]/div/span/button")).isDisplayed();
+        element(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]")).click();
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[2]/div[3]/div/span/button")).isDisplayed();
+        await delay(10000);
+    });
           
-          });
-          
-      When('i click on get credits plan', async () => {
+    When('i click on get credits plan', async () => {      
+      element(by.xpath("html/body/header/section[1]/div[8]/div/a/span")).click();
+      await delay(5000);
+    });
+      
+    When('get credits plan link is displayed', async () => {      
+       element(by.linkText("Find a Credit Membership Plan that is right for you...")).isDisplayed();
+       await delay(5000);
+    });
       
       
-      element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
+    When('i click on user name drop down', async () => {  
+       element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+       await delay(5000);
+    });  
+    When('then account is displayed', async () => {     
+       element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).isDisplayed();
       
-      });
-      
-      When('get credits plan link is displayed', async () => {
-      
-      element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[2]")).isDisplayed();
-      
-      });
-      
-      
-      When('i click on user name drop down', async () => {
-      
-      
-      element(by.xpath(".//*[@id='account-dropdown-button']")).click();
-      });
-      
-      
-      When('then account is displayed', async () => {
-      
-         
-      element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).isDisplayed();
-      
-      });
-          When('i click on account', async () => {
+    });
+    When('i click on account', async () => {
       
          
       element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
-      
-      });
-          When('then credits plan is displayed', async () => {
+      await delay(10000);
+    });
+    When('get credits plan is displayed', async () => {
       
          
       
@@ -559,7 +539,7 @@ defineSupportCode(function ({Given, Then, When}) {
 		
 	      
 		
-		 When('i click on Add to cart', async () => {
+		 When(' ', async () => {
 	 
 	 
         element(by.xpath(".//*[@id='product-addtocart-button']")).click();
@@ -567,16 +547,7 @@ defineSupportCode(function ({Given, Then, When}) {
 
 	 
 	 });
-	 
-	 	
-	 	 When('i click on Add to cart for two products', async () => {
-	 
-	 
-          element(by.xpath(".//*[@id='ui-id-1']")).click();
 	
-
-	 
-	 });
 	  When('Cart displayed with following items', async () => {
 	 
 	 
@@ -607,11 +578,8 @@ defineSupportCode(function ({Given, Then, When}) {
 	 
 	 When('i move to shops products', async () => {
 	 
-	 
-	 
-        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
-	 
-	 
+        browser.actions().mouseMove(element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products.html']"))).perform();
+        await delay(5000);
 	 });
 	 	 
 	 When('study,watch,listen,products are displayed', async () => {
@@ -669,9 +637,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('i click on Listen page', async () => {
 	 
 	 
-        browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
-		
-        element(by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).click();
+        element(by.xpath(".//a[@href='https://market.beta.formed.org/shop-products/listen.html']")).click();
 	});
 	
 	When('Listen page is displayed', async () => {
@@ -683,8 +649,8 @@ defineSupportCode(function ({Given, Then, When}) {
     When('i click on Item', async () => {
 	 
 	 
-        element(by.xpath(" .//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img ")).click();
-		
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img")).click();
+        await delay(5000);
 		});
 		When('Product detailed page is displayed', async () => {
 		
@@ -694,7 +660,7 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='related__items']/div[1]/h2")).isDisplayed();
 		
         element(by.xpath(" .//*[@id='maincontent']/div[2]/div/div[4]/div[1]/div[1]/div/img ")).isDisplayed();
-	 
+        await delay(5000);
 		});	
 		
 		
@@ -708,15 +674,15 @@ defineSupportCode(function ({Given, Then, When}) {
        When('Confirmation message is displayed', async () => {        
 	   
         element(by.linkText("    ")).isDisplayed();    
-		
+		await delay(5000);
     });
 		
-	 When('  i click on Add to cart', async () => {
+	 When('i click on Add to cart', async () => {
 	 
 	 
         element(by.xpath(".//*[@id='product-addtocart-button']")).click();
 		
-
+        await delay(5000);
 	 
 	 });
 	 
@@ -725,40 +691,29 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='ui-id-1']")).click();
 	 
         element(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]")).isDisplayed();
-	 
+	    await delay(5000);
 	 });
 	 
-	 	 When('  i click on Add to cart for two products', async () => {
-	 
-	 
-          element(by.xpath(".//*[@id='ui-id-1']")).click();
-	
-
-	 
+	When('i click on Add to cart for two products', async () => { 
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+	    await delay(5000);	 
 	 });
 	 When('carts counter is increased', async () => {
-	 
-	 
         element(by.xpath("html/body/header/section[1]/div[7]/div/a/span[2]/span[1]")).isDisplayed();
+	    await delay(5000);
+	});
 	 
-	 });
-	 
-	  When('i click on cart to search for title,thumbnail,Producer,Delete, checkout button', async () => {
-	 
-	 
+	When('i click on cart to search for title,thumbnail,Producer,Delete, checkout button', async () => { 
         element(by.xpath(".//*[@id='ui-id-1']")).click();
-	
-	 
-	 });
-	 	 When(' Cart displayed with following items', async () => {
-	 
-	 
+	    await delay(5000);	 
+	});
+	When(' Cart displayed with following items', async () => {
         element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[1]/a")).isDisplayed();
 		
 		element(by.xpath(".//*[@id='mini-cart']/li/div[1]/div/strong[2]")).isDisplayed();
 		
 		element(by.xpath(".//*[@id='top-cart-btn-checkout']")).isDisplayed();
-			     
+		await delay(5000);	     
 	 
 	 }); 
     When('Show products link is hovered', async () => {
@@ -799,7 +754,7 @@ defineSupportCode(function ({Given, Then, When}) {
     Then('Click on audiobooks Link and Verify', async () => {
         element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/listen/audiobooks.html']")).click();
         await delay(6000);
-        //element(by.xpath("//a[@href='https://market.beta.formed.org/no-hay-amor-mas-grande.html']")).isDisplayed();
+        await expect(browser.findElement(by.xpath("//a[@href='https://market.beta.formed.org/no-hay-amor-mas-grande.html']"))).to.eventually.exist;
         //element(by.xpath("//a[@href='https://market.beta.formed.org/don-bosco-spanish.html']")).isDisplayed();
     });
     When('Click on Login button', async () => {
@@ -860,7 +815,7 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     Then('Click on gifts Link and Verify', async () => {
         await delay(8000);
-        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[3]/div/a")).click();
+        element(by.xpath(".//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/gifts.html']")).click();
         //element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/gifts.html']")).click();
         await delay(15000);
         element(by.xpath("//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).isDisplayed();
@@ -1026,12 +981,12 @@ defineSupportCode(function ({Given, Then, When}) {
     }); 
     When('Click on annual formed subscription', async () => {
         browser.navigate().refresh();
-        await delay(4000);
-        //element(by.xpath("//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).click();
-        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/div/strong/a")).click();
-        
-        
-        await delay(6000);
+        await delay(15000);
+        element(by.xpath("//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).click();
+        //element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/div/strong/a")).click();
+        await delay(2000);
+        browser.navigate().refresh();
+        await delay(8000);
     }); 
     Then('Enter Details', async () => {        
         element(by.xpath("//input[@id='options_267_text']")).sendKeys("rajeshnakka.c212c@gmail.com");    
@@ -1127,14 +1082,14 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     Then('Order Confirmation is displayed', async () => { 
         
-        await delay(5000);
-        element(by.linkText("Thank you for your purchase")).isDisplayed();
-        element(by.linkText("Order Number")).isDisplayed();
-        element(by.linkText("Order Date")).isDisplayed();
-        element(by.linkText("1Year FORMED On Demand Gift Subscription")).isDisplayed();
-        element(by.linkText("Payment summary")).isDisplayed();
-        element(by.linkText("Sent to: Fname Lname")).isDisplayed();
-        element(by.linkText("rajeshnakka.c212c@gmail.com")).isDisplayed();
+        await delay(10000);
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/header/h1")).isDisplayed();
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div/div[4]/div[1]/div[1]/div[2]/div[2]/strong")).isDisplayed();
+        //element(by.linkText("Order Date")).isDisplayed();
+        //element(by.linkText("1Year FORMED On Demand Gift Subscription")).isDisplayed();
+        //element(by.linkText("Payment summary")).isDisplayed();
+        //element(by.linkText("Sent to: Fname Lname")).isDisplayed();
+        //element(by.linkText("rajeshnakka.c212c@gmail.com")).isDisplayed();
         await delay(10000);
     });
     Then('Click on profile dropdown', async () => {  
@@ -1189,26 +1144,43 @@ defineSupportCode(function ({Given, Then, When}) {
 
 
     });
+    //When('Enter Name and password for individual user2', async () => {
+      //  element(by.xpath("//input[@name='email']")).sendKeys("sampletest@gmail.com");
+        //await delay(1000);
+        //element(by.xpath("//input[@name='password']")).sendKeys("Beltone@123");
+        //await delay(1000);
+        //element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
+        //await delay(5000);
+    //});
     When('Enter Name and password for individual user2', async () => {
-        element(by.xpath("//input[@name='email']")).sendKeys("sampletest@gmail.com");
-        await delay(1000);
-        element(by.xpath("//input[@name='password']")).sendKeys("Beltone@123");
-        await delay(1000);
-        element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
         await delay(5000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[1]/input")).sendKeys("sampletest@gmail.com");
+          await delay(1000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[2]/input")).sendKeys("Beltone@123");
+          await delay(1000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]")).click();
+          await delay(15000);
     });
     When('Enter Name and password for individual user with multiple cards', async () => {
-        element(by.xpath("//input[@name='email']")).sendKeys("multiplecards@gmail.com");
-        await delay(1000);
-        element(by.xpath("//input[@name='password']")).sendKeys("Beltone@123");
-        await delay(1000);
-        element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
         await delay(5000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[1]/input")).sendKeys("multiplecards@gmail.com");
+          await delay(1000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[1]/div[2]/input")).sendKeys("Beltone@123");
+          await delay(1000);
+          element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]")).click();
+          await delay(15000);
+
+        //element(by.xpath("//input[@name='email']")).sendKeys("multiplecards@gmail.com");
+        //await delay(1000);
+        //element(by.xpath("//input[@name='password']")).sendKeys("Beltone@123");
+        //await delay(1000);
+        //element(by.xpath("//button[@class='btn btn-large btn-primary login-submit']")).click();
+        //await delay(5000);
     });
     When('Enter CVV', async () => {
         element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("222");
         await delay(1000);
-        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[6]/div/button")).click();
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
         await delay(5000);
     });
     Then('Select card 2', async () => {
@@ -1218,12 +1190,12 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     Then('Order Details is displayed', async () => {
         await delay(6000);
-        element(by.linkText("Order #")).isDisplayed();
-        element(by.linkText("Order Total")).isDisplayed();
-        element(by.linkText("Status")).isDisplayed();
+        element(by.linkText("Order Number")).isDisplayed();
+        element(by.linkText("Order Date")).isDisplayed();
+        element(by.linkText("Items")).isDisplayed();
         element(by.linkText("Complete")).isDisplayed();
-        element(by.linkText("Credits ")).isDisplayed();
-        element(by.linkText("Order #")).isDisplayed();
+        element(by.linkText("Total")).isDisplayed();
+        element(by.linkText("1 Yr On Demand Gift Subscription")).isDisplayed();
 
         await delay(1000);
     });
