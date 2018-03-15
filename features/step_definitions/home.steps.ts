@@ -773,7 +773,7 @@ defineSupportCode(function ({Given, Then, When}) {
     Then('Click on audiobooks Link and Verify', async () => {
         element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/listen/audiobooks.html']")).click();
         await delay(6000);
-        await expect(browser.findElement(by.xpath("//a[@href='https://market.beta.formed.org/no-hay-amor-mas-grande.html']"))).to.eventually.exist;
+        await expect(browser.findElement(by.xpath("//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/div/strong/a"))).to.eventually.exist;
         //element(by.xpath("//a[@href='https://market.beta.formed.org/don-bosco-spanish.html']")).isDisplayed();
     });
     When('Click on Login button', async () => {
