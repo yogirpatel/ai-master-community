@@ -840,6 +840,49 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("//a[@href='https://market.beta.formed.org/annual-formed-ondemand-subscription.html']")).isDisplayed();
         element(by.xpath("//a[@href='https://market.beta.formed.org/6-month-formed-ondemand-subscription.html']")).isDisplayed();
     });
+    When('Click on Individual subscription', async () => {
+        element(by.xpath("//a[@href='https://market.beta.formed.org/formed-on-demand-subscription-for-individuals.html']")).click();
+        await delay(8000);
+    });
+    When('Click on Group subscription', async () => {
+        element(by.xpath("//a[@href='https://market.beta.formed.org/formed-on-demand-subscription-for-groups.html']")).click();
+        await delay(8000);
+    });
+    Then('Select Annual for Individual subscription', async () => {
+        element(by.xpath(".//*[@id='item_936']")).click();
+        await delay(1000);
+    });
+    Then('Select Monthly for Individual subscription', async () => {
+        element(by.xpath(".//*[@id='item_937']")).click();
+        await delay(1000);
+    });
+    Then('Select Annual for Group subscription', async () => {
+        element(by.xpath(".//*[@id='item_932']")).click();
+        await delay(1000);
+    });
+    Then('Select Monthly for Group subscription', async () => {
+        element(by.xpath(".//*[@id='item_933']")).click();
+        await delay(1000);
+    });
+    Then('Individual subscription is displayed', async () => {
+        //element(by.linkText("Individual On Demand Subscription")).to.eventually.exist;
+        element(by.xpath("//*[@class='price-box price-final_price']")).to.eventually.exist;
+        await delay(8000);
+    });
+    Then('Group subscription is displayed', async () => {
+        element(by.linkText("Group On Demand Subscription")).to.eventually.exist;
+        element(by.xpath("//*[@class='price-box price-final_price']")).to.eventually.exist;
+        await delay(8000);
+    });
+    Then('Click on onDemand Link and Verify', async () => {
+        await delay(8000);
+        element(by.xpath(".//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/on-demand.html']")).click();
+        //element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/gifts.html']")).click();
+        await delay(15000);
+        element(by.xpath("//a[@href='https://market.beta.formed.org/formed-on-demand-subscription-for-groups.html']")).isDisplayed();
+        element(by.xpath("//a[@href='https://market.beta.formed.org/formed-on-demand-subscription-for-individuals.html']")).isDisplayed();
+    });
+
     Then('Click on study Link and Verify with parish admin', async () => {
         element(by.xpath("//a[@href='/study']")).click();
         await delay(6000);
@@ -1079,6 +1122,52 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
         await delay(5000);
     });
+    Then('Enter Billing Information for Monthly Individual', async () => { 
+        browser.navigate().refresh()
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+        await delay(5000);
+        //element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+        
+        await delay(5000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+        
+        await delay(5000);
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+        await delay(1000);
+        //element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+        await delay(1000);
+        element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+        await delay(5000);
+    });
+    Then('Enter Billing Information for Group', async () => { 
+        browser.navigate().refresh()
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+        await delay(5000);
+        //element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+        
+        await delay(5000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+        
+        await delay(5000);
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+        await delay(1000);
+        //element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[9]/div/input")).sendKeys("6002548421");
+        await delay(1000);
+        element(by.xpath(".//*[@id='billing-new-address-form']/div[10]/div/button[1]")).click();
+        await delay(5000);
+    });
     Then('Enter Payment Menthod', async () => { 
         
         //await delay(5000);
@@ -1095,7 +1184,58 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='magedelight_cybersource_expiration_yr']/option[3]")).click();
         await delay(1000);
         element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("222");
-        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[6]/div/button")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+                          
+        await delay(10000);
+    });
+    Then('Order Confirmation is displayed for Group', async () => { 
+        
+        await delay(10000);
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button")).isDisplayed();
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/strong")).isDisplayed();
+        //element(by.linkText("Order Date")).isDisplayed();
+        //element(by.linkText("1Year FORMED On Demand Gift Subscription")).isDisplayed();
+        //element(by.linkText("Payment summary")).isDisplayed();
+        //element(by.linkText("Sent to: Fname Lname")).isDisplayed();
+        //element(by.linkText("rajeshnakka.c212c@gmail.com")).isDisplayed();
+        await delay(10000);
+    });
+    Then('Enter Payment Menthod for Group', async () => { 
+        
+        //await delay(5000);
+        //element(by.xpath(".//*[@id='magedelight_cybersource_cc_type']")).click();
+        
+        await delay(5000);
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_type']/option[3]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_number']")).sendKeys("4111111111111111");
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_expiration']/option[7]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_expiration_yr']/option[3]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("222");
+        
+    });
+    Then('Enter Organisation information', async () => { 
+        
+        //await delay(5000);
+        element(by.xpath(".//*[@id='group-subscription-organization']/div[2]/div/span/a/span")).click();
+        
+        await delay(5000);
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath(".//*[@id='ui-id-5']")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='group-subscription-organization']/div[3]/div/span/a/span")).click();
+        await delay(2000);
+        element(by.xpath("html/body/ul[3]/li/a")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='group-subscription-organization']/div[4]/input")).sendKeys("formedwebsite");
+        await delay(1000);
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+        
         
         await delay(10000);
     });
