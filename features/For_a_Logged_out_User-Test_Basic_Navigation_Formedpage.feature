@@ -9,7 +9,6 @@ Feature: For a Logged out User-Test Basic Navigation Formedpage
   # from at document
   Scenario: For a Logged out User-Test Basic Navigation Formedpage
     When I click on On Demand page
-    Then there is a home icon
     When navigate to market page
     Then navigate to formed page
     Then Show products link is displayed
