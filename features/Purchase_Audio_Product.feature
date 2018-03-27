@@ -9,7 +9,6 @@ Feature: This file will test the Audio page
   # from at document
   Scenario: FORMED Landing Page
   When I click on On Demand page
-  Then there is a home icon
   When navigate to market page
   When Show products link is hovered
   Then Click on audio dramas Link and Verify
