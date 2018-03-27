@@ -23,7 +23,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('Formed icon is displayed in home page', async () => {
 	   
 		
-	    element (by.xpath("html/body/header/section[1]/div[1]/strong/span")).to.eventually.exist;
+	    element (by.xpath("html/body/header/section[1]/div[1]/strong/span")).isDisplayed();
 		
 	    element (by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
 		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
@@ -51,47 +51,52 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('I click on On Demand page', async () => {
         await delay(8000);
-        element(by.xpath(".//a[@href='https://beta.formed.org/']")).click();
+        element(by.xpath(".//a[@href='/']")).click();
         await delay(12000);
     });          
 	 When('On Demand page is displayed', async () => {	 
-	    element(by.xpath(".//*[@id='scroll-top']/div/div/div[2]/div")).isDisplayed();
+	    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/h1")).isDisplayed();
 	});
 	When('I click on Learn more', async () => {
+        await delay(1000);
         element(by.xpath(".//*[@id='scroll-top']/div/div/div[2]/div/a/p")).click();	
 	});
 
 	When('video plays', async () => {
-	    element(by.xpath(".//*[@id='player']/div/div/div[3]")).isDisplayed();	
+        await delay(2000);
+        element(by.xpath(".//*[@id='player']/div/div/div[7]/div[2]/button")).click();
+        await delay(2000);
+        element(by.xpath(".//*[@title='Pause']")).isDisplayed();
+        	
 	});	
 	
-	When('there is On demand , Library , market is displayed', async () => {
-	   
-        element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
-	   
-	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).isDisplayed();   
-	   
-	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[3]/a")).isDisplayed();
-	
-	});
 	When('i click on Market page',async () => {
 	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
 	});
 	 
 	When('Get credit link is displayed',async () => {
-	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
+	    element(by.xpath(".//*[@href='/creditplans.html']")).isDisplayed();
 	});
 	 
 	 When('i click on Get credits plan',async () => {
-	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();	 
+        element(by.xpath(".//*[@href='/creditplans.html']")).click();
+        await delay(6000);	 
 	});
 	When('Credit Plans page is displayed',async () => {
-	    element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[2]")).isDisplayed();	 
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[1]/div[2]")).isDisplayed();
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[2]/div[3]")).isDisplayed();
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[3]/div[2]")).isDisplayed();
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ul/li[4]/div[2]")).isDisplayed();        
 	});
-	 
+	When('Click on cart with empty', async () => {
+	
+	    element(by.xpath(".//*[@class='formed__minicart']")).click();
+	    await delay(1000);                 
+    }); 
 	When('i click on cart icon when there are no items in cart', async () => {
 	
-	    element(by.xpath(".//*[@id='ui-id-1']")).click();
+        element(by.xpath(".//*[@id='ui-id-1']")).click();
+        element(by.linkText("You have no items in your shopping cart.")).isDisplayed();
 	    await delay(1000);                 
     });
 	When('cart page is displayed',async () => {
@@ -125,58 +130,49 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('i click on market button', async () => {
 	  
 	   element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
-	});
+    
+    });
 	  
 	  
 	When('Special offers are displayed', async () => {
-	    await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/h1[1]"))).to.eventually.exist;
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[1]/h3v"))).isDisplayed();	
-		await expect(browser.indElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[2]"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[2]/div"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[3]"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[1]/li[3]/div"))).isDisplayed();	
+
+	    element(by.xpath(".//*[@id='homepage_featured_products']/h1[2]")).isDisplayed();
+		element(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[1]/a")).isDisplayed();	
+		element(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[2]/a")).isDisplayed();	
+		element(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[3]/a")).isDisplayed();	
 	
-        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/h1[2]"))).to.eventually.exist;
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[1]"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[1]/div"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[2]"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[2]/div"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[3]"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath(".//*[@id='homepage_featured_products']/ul[2]/li[3]/div[1]"))).isDisplayed();	
-		
 	});
 	   
 	   
 	When('i click on Terms of use',async () => {
 	 
 	                      
-       element(by.xpath("html/body/main/div/footer/div/div/ul/li[1]/a")).click();   
-	});
+       element(by.xpath(".//*[@href='https://formed.org/terms-and-conditions']")).click();   
+       delay(6000);
+    });
 	   
 	   
 	When('terms of use is displayed',async () => {
-        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/h1"))).isDisplayed();	
+        element(by.xpath(".//*[@id='scroll-top']/div/h1")).isDisplayed();	
 	});  
 	   
 	When('i click on privacy policy', async () => {
-	    element(by.xpath("html/body/main/div/footer/div/div/ul/li[2]/a")).click();
-	   
+	    element(by.xpath(".//*[@href='https://formed.org/privacy-policy']")).click();
+	    delay(6000);
 	});
 	When('privacy policy page is displayed',async () => {
 	 
-        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/h1"))).isDisplayed();
+        element(by.xpath(".//*[@id='scroll-top']/div/h1")).isDisplayed();
 	});
 	   
 	When('i click on help', async () => {
 	 
 	                      
-        element(by.xpath("html/body/main/div/footer/div/div/ul/li[3]/a")).click();
-	});
+        element(by.xpath(".//*[@href='http://help.market.formed.org']")).click();
+        await delay(6000);   
+    });
 	When('help page is displayed', async () => {
-	 
-	   
-        await expect(browser.findElement(by.xpath("html/body/div[1]/section"))).isDisplayed();
+        element(by.linkText("How can we help you today?")).isDisplayed();
 	});  
 	   
 	When('i move to digital products', async () => {
@@ -187,23 +183,23 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('mega-menu is displayed', async () => {
 		
 	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a")).isDisplayed();
         await delay(5000);
 		
-        await expect(browser.findElement(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a"))).isDisplayed();	
+        element(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a")).isDisplayed();	
+	    element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a")).isDisplayed();	
 
 		
 		
 		
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a"))).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a")).isDisplayed();
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a")).isDisplayed();	
+	    element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a")).isDisplayed();	
+	    element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a")).isDisplayed();	
 								  
 
         await delay(5000);
@@ -213,61 +209,51 @@ defineSupportCode(function ({Given, Then, When}) {
     When('i click on search icon and enter text', async () => {
 	 
 	   element(by.xpath(".//*[@id='search']")).sendKeys("Listen");
-	                      
+	    await delay(2000);                  
        element(by.xpath(".//*[@id='search_mini_form']/div[1]/div/label/span[1]")).click();
-	});
+       await delay(8000);
+    });
 	   
 	When('results page is displayed', async () => {
 			 
+       element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[1]/ol/li[1]/div/div/strong/a")).isDisplayed();
 			 
-       element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/p/a/span")).isDisplayed();
-			 
-	});
-	
-	   
-	   
-	  
-	When('unlogged in user on clicking on demand', async () => {
-	   
-	   
+	});  	  
+	When('unlogged in user on clicking on demand', async () => {   	   
         element(by.xpath(".//*[@id='account-dropdown-button']")).click();
-	   
+        await delay(2000);
 	    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
-	    
-		element(by.xpath(" html/body/header/section[1]/div[2]/ul/li[1]/a")).click();
-	});
+	    await delay(5000);
+		element(by.xpath(".//*[@href='https://beta.formed.org/']")).click();
+        await delay(10000);
+    });
 		
-	When('on demand page with enter free trail , enter code , Sign up group is displayed',async () => {
+	When('on demand page with enter free trail,enter code,Sign up group is displayed',async () => {
 
-		
-        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/registration-column/modal-link/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[3]/registration-column/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[4]/registration-column/a"))).isDisplayed();	
-		
-		
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/registration-column/modal-link/a/span")).isDisplayed();	
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[3]/registration-column/a")).isDisplayed();	
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[4]/registration-column/a")).isDisplayed();	
+		await delay(2000);
 	});
 	   
 	   
 	When('i click on library page if there is no content', async () => {
-	   
-                         
-	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).click();
-				   
+
+	    element(by.xpath(".//*[@href='https://market.beta.formed.org/mylibrary']")).click();
+        await delay(6000);	   
 				   
 	});
 
 	When('your library is empty and some message is displayed', async () => {
 	   
-        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/h1"))).isDisplayed();	
+       element(by.linkText("Your Library is Empty")).isDisplayed();	
                       
-        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/p"))).isDisplayed();	
-	   
 	});
        
 	When('i click on market page and move to Digital products',async () => {
 		 
 	    element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).click();
-		  
+        await delay(6000);
 	
 	});
 	When('menu elements are displayed',async () => {
@@ -276,20 +262,20 @@ defineSupportCode(function ({Given, Then, When}) {
 	    browser.actions().mouseMove(element(by.xpath("html/body/header/section[2]/section/div[1]/div[1]/a/span[1]"))).perform();
         await delay(5000);
 		
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a")).isDisplayed();
         await delay(5000);
 		
-        await expect(browser.findElement(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a"))).isDisplayed();	
+        element(by.xpath(" html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[1]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[2]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[3]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[4]/div/a")).isDisplayed();	
+	    element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/ul/li[5]/div/a")).isDisplayed();	
 		
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a"))).to.eventually.exist;
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a"))).isDisplayed();	
-        await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a"))).isDisplayed();	
-	    await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a"))).isDisplayed();	
-		await expect(browser.findElement(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a"))).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[1]/div/a")).isDisplayed();
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[1]/div/a")).isDisplayed();	
+        element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[2]/div/a")).isDisplayed();	
+	    element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[3]/div/a")).isDisplayed();	
+		element(by.xpath("html/body/header/section[2]/section/div[1]/div[2]/ul/li[2]/ul/li[4]/div/a")).isDisplayed();	
 								  
 
         await delay(5000);
@@ -304,14 +290,12 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[2]/div/input[1]']")).click();
         await delay(5000);
 	});
-	When('there is On demand , Library , market is displayed	', async () => {
+	When('there is On demand,community,Library,market is displayed', async () => {
 	   
-	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
-	   
-	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[2]/a")).isDisplayed();
-	   
-	   
-	   element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[3]/a")).isDisplayed();
+	   element(by.xpath(".//*[@href='https://beta.formed.org/']")).isDisplayed();	   
+	   element(by.xpath(".//*[@href='https://beta.formed.org//community']")).isDisplayed();  
+	   element(by.xpath(".//*[@href='https://market.beta.formed.org/mylibrary/']")).isDisplayed();
+	   element(by.xpath(".//*[@href='https://market.beta.formed.org/']")).isDisplayed();
 	
 	});
 	   
@@ -319,18 +303,19 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('an unlogged in user enters home page', async () => {
 	   
 	    element(by.xpath(".//*[@id='account-dropdown-button']")).click();
-	    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
-		
+        await delay(2000);
+        element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+		await delay(2000);
     });
 		
 	When('Formed icon is displayed', async () => {
 	   
 		
-	    element (by.xpath("html/body/header/section[1]/div[1]/strong/span")).to.eventually.exist;
+	    element(by.xpath("html/body/header/section[1]/div[1]/strong/span")).isDisplayed();
 		
-	    element (by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
-		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
-		element (by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
+	    element(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a")).isDisplayed();
+		element(by.xpath("html/body/header/section[1]/div[2]/ul/li[2]/a")).isDisplayed();
+		element(by.xpath("html/body/header/section[1]/div[2]/ul/li[3]/a")).isDisplayed();
 		   
 	});
 	   
@@ -392,9 +377,9 @@ defineSupportCode(function ({Given, Then, When}) {
 				
 	When('your library is  empty and some message is displayed',async () => {
 	      
-        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/h1"))).isDisplayed();	
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/section/h1")).isDisplayed();	
                       
-        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/section/p"))).isDisplayed();	
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/section/p")).isDisplayed();	
 	   
 	});
 	   
@@ -408,7 +393,7 @@ defineSupportCode(function ({Given, Then, When}) {
 				   
 	When('credits plan page is displayed', async () => {
 	   
-        await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/h1"))).isDisplayed();	
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/h1")).isDisplayed();	
                       	
 	   
 	});
@@ -435,7 +420,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	   
 	When('i search  a Formed icon for a loggedin user', async () => {
 	   
-	   element(by.xpath("html/body/header/section[1]/div[1]/a/span")).to.eventually.exist;
+	   element(by.xpath("html/body/header/section[1]/div[1]/a/span")).isDisplayed();
 	   
     });
 	   
