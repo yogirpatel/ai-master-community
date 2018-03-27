@@ -9,7 +9,6 @@ Feature: This file will test the Library page
   # from at document
   Scenario: FORMED Landing Page
   When I click on On Demand page
-  Then there is a home icon
   When navigate to market page
   When i enter home page then library link is between market and on demand page
   Then library link is displaying in between
