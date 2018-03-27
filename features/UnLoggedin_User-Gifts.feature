@@ -9,7 +9,6 @@ Feature: UnLoggedin User - Gifts
   # from at document
   Scenario: UnLoggedin User - Gifts
     When I click on On Demand page
-    Then there is a home icon
     When navigate to market page
     When Show products link is hovered
     Then Click on gifts Link and Verify
