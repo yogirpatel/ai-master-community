@@ -9,7 +9,6 @@ Feature: For a Logged in User-Test Basic Navigation Formedpage
   # from at document
   Scenario: For a Logged in User-Test Basic Navigation Formedpage
     When I click on On Demand page
-    Then there is a home icon
     When Click on Login button
     When Enter Name and password for individual user
     When navigate to market page
