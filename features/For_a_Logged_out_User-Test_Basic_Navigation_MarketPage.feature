@@ -9,7 +9,6 @@ Feature: For a Logged out User-Test Basic Navigation MarketPage
   # from at document
   Scenario: For a Logged out User-Test Basic Navigation MarketPage
     When I click on On Demand page
-    Then there is a home icon
     When navigate to market page
     Then Show products link is displayed
     When Show products link is hovered
