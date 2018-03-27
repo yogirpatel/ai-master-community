@@ -9,7 +9,6 @@ Feature: For a Logged in User-Test Basic Navigation Marketpage
   # from at document
   Scenario: For a Logged in User-Test Basic Navigation Marketpage
     When I click on On Demand page
-    Then there is a home icon
     When navigate to market page
     When i click on login button to verify for forgot password
     Then forgot password is displayed
