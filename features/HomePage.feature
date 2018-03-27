@@ -8,46 +8,46 @@ Feature: This file will test the home page
 
   # from at document
   Scenario: FORMED Landing Page  
-    When I click on On Demand page
+	When I click on On Demand page
     Then there is a home icon
-    Then On Demand page is displayed
-    When I click on Learn more
-    Then video plays
+	Then On Demand page is displayed
+	When I click on Learn more
+	Then video plays
     Given I navigate to "/"
+	When navigate to market page
     When i click on login button to verify for forgot password
     Then forgot password is displayed
     When i Enter Name and password for individual user
-    Then there is On demand , Library , market is displayed
-    When i click on Market page
+    Then there is On demand,community,Library,market is displayed
     Then Get credit link is displayed
     When i click on get credits plan
     Then Credit Plans page is displayed
+    Then Click on cart with empty
     When i click on cart icon when there are no items in cart
     Then cart page is displayed
     When i move to Digital products
     Then Digital products drop down list is displayed
     When i navigate to market page to serach for search button
     Then search icon is displayed
-    When i click on market button
-    Then Special offers are displayed
+    When navigate to market page
     When i click on Terms of use
     Then terms of use is displayed
     When i click on privacy policy
-    Then privacy policy page is displayed
     When i click on help
-    Then help page is displayed
     When i move to Digital products
     Then mega-menu is displayed
     When i click on search icon and enter text
     Then results page is displayed
     When unlogged in user on clicking on demand
-    Then on demand page with enter free trail , enter code , Sign up group is displayed
+    Then on demand page with enter free trail,enter code,Sign up group is displayed
     When i click on library page if there is no content
     Then your library is empty and some message is displayed
-    When i click on market page and move to Digital products
+    When navigate to market page
+    When i move to Digital products
     Then menu elements are displayed
     When i click on login button and enter username and password
-    Then there is On demand , Library , market is displayed
+    Then there is On demand,community,Library,market is displayed
+    When navigate to market page
     When an unlogged in user enters home page
     Then Formed icon is displayed in home page 
     When i click on market side user name drop down
@@ -64,7 +64,7 @@ Feature: This file will test the home page
     Then Formed icon is displayed
     When i navigate to Account drop down and click on logout
     Then Home page is displayed
-    Then i click on account and logout
+
 
 
 
