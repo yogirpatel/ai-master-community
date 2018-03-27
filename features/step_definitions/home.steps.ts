@@ -32,7 +32,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	});
     Then('there is a home icon', async () => {
         
-        await expect(browser.getTitle()).to.eventually.contain("FORMED");
+        
         await expect(browser.findElement(by.xpath("//i[@class='icon-formed']"))).to.eventually.exist;
     });
 
