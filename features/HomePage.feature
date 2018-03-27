@@ -8,13 +8,12 @@ Feature: This file will test the home page
 
   # from at document
   Scenario: FORMED Landing Page  
-	When I click on On Demand page
-    Then there is a home icon
-	Then On Demand page is displayed
-	When I click on Learn more
-	Then video plays
+    When I click on On Demand page
+    Then On Demand page is displayed
+    When I click on Learn more
+    Then video plays
     Given I navigate to "/"
-	When navigate to market page
+    When navigate to market page
     When i click on login button to verify for forgot password
     Then forgot password is displayed
     When i Enter Name and password for individual user
