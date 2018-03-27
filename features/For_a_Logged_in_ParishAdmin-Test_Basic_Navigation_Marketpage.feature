@@ -9,7 +9,6 @@ Feature: For a Logged in ParishAdmin-Test Basic Navigation Marketpage
   # from at document
   Scenario: For a Logged in ParishAdmin-Test Basic Navigation Marketpage
     When I click on On Demand page
-    Then there is a home icon
     When Click on Login button
     When Enter Parish Admin Name and password
     When navigate to market page
