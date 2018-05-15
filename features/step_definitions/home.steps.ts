@@ -2548,7 +2548,20 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(10000);
 
     });
-
+    Then('PBP-0080 click on username', async () => {
+        element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+        await delay(5000);
+        element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
+        await delay(10000);
+        element(by.xpath(".//*[@id='account-nav']/ul/li[1]/strong")).isDisplayed();
+        await delay(1000);        
+   });
+   Then('PBP-0080 Account page is displayed', async () => {
+        element(by.xpath(".//*[@id='account-nav']/ul/li[2]/a")).click();
+        await delay(8000);
+        element(by.xpath(".//*[@id='account-nav']/ul/li[2]/a")).isDisplayed();
+        await delay(3000);
+   });  
 
 
 });
