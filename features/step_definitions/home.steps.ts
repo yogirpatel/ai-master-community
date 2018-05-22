@@ -2062,20 +2062,20 @@ defineSupportCode(function ({Given, Then, When}) {
 	  await delay(10000);
 	});
 	Then('ABP-0070 View details is displayed', async () => {
-	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[1]")).isDisplayed();
+	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[1]"))).to.eventually.exist;
 	  await delay(3000);
-	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[2]")).isDisplayed();
+	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[2]"))).to.eventually.exist;
 	  await delay(3000);
-	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[2]/div[1]")).isDisplayed();
+	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[2]/div[1]"))).to.eventually.exist;
 	  await delay(3000);
-	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[2]")).isDisplayed();
+	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[2]"))).to.eventually.exist;
 	  await delay(3000);
-	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/span/span")).isDisplayed();
+	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/span/span"))).to.eventually.exist;
 	  await delay(3000);
     });
     When('LLP-0010 Unlogged user enters home page', async () => {
 	   
-        element(by.xpath("")).Click();
+        element(by.xpath("")).click();
         await delay(3000);
     
     });
@@ -2548,21 +2548,287 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(10000);
 
     });
-    Then('PBP-0080 click on username', async () => {
+    Then('VR-0010 entercode,getfreetrail,sign up group is displayed', async  () => {
+              
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/registration-column/modal-link/a")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[3]/registration-column/a")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[4]/registration-column/a")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[4]/registration-column/a")).click();
+        await delay(10000);
+    });
+    Then('VR-0020 sign in group detail is displayed', async  () => {
+              
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[2]/h1/span")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='product-addtocart-button']")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='item_932']")).click();
+        await delay(5000);
+        element(by.xpath(".//*[@id='product-addtocart-button']")).click();
+        await delay(10000);
+    });
+    Then('VR-0020 click on checkout button', async  () => {
+              
+        element(by.xpath(".//*[@id='maincontent']/div[1]/div[2]/div[2]/div/div")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='product-alreadyincart-button']")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='product-alreadyincart-button']")).click();
+        await delay(8000);
+        element(by.xpath(".//*[@id='top-cart-btn-checkout']")).click();
+        await delay(15000);
+    });
+    Then('VR-0030 Billing information are displayed', async () => { 
+        browser.navigate().refresh();
+        element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+        await delay(5000);
+        element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+        await delay(12000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+        await delay(5000);
+        element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+        await delay(1000);
+        element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+        await delay(1000);
+        element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[9]/div/input")).sendKeys("9898985555");
+        await delay(3000);
+        element(by.xpath(".//*[@id='billing-new-address-form']/div[10]/div/button[1]")).click();
+        await delay(5000);
+    });
+    Then('VR-0030 Enter Payment Method', async () => { 
+        
+        //await delay(5000);
+        //element(by.xpath(".//*[@id='magedelight_cybersource_cc_type']")).click();
+        
+        await delay(10000);
+        //element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_type']/option[3]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_number']")).sendKeys("4242424242424242");
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_expiration']/option[2]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_expiration_yr']/option[4]")).click();
+        await delay(1000);
+        element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("123");
+    });
+    When('VR-0040 click on Enter coupon', async () => {
+        await delay(8000);
+        element(by.xpath(".//*[@id='coupons-tax-exempt']/div[1]/strong/a")).click();
+        await delay(10000);
+        element(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]/div[1]/label/input")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]/div[2]/input")).isDisplayed();
+        await delay(2000);
+    });
+    When('VR-0030 Choose organization', async () => {
+        element(by.xpath(".//*[@id='group-subscription-diocese-select']")).click();
+        await delay(5000);
+        element(by.xpath(".//*[@id='group-subscription-diocese-select']/option[5]")).click();
+        await delay(2000);
+        element(by.xpath(".//*[@id='group-subscription-organization-select']")).click();
+        await delay(5000);
+        element(by.xpath(".//*[@id='group-subscription-organization-select']/option[6]")).click();
+        await delay(5000);
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+        await delay(15000);
+    });
+    When('VR-0050 order conformation is displayed', async () => {
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[1]/h2")).isDisplayed();
+        await delay(2000);
+        element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button")).click();
+        await delay(15000);
+
+    });
+    When('VR-0060 Enter organization information', async () => {
+        element(by.xpath(".//*[@id='groupLeader']")).sendKeys("Krishna");
+        await delay(2000);
+        element(by.xpath(".//*[@id='groupMission']")).sendKeys("I love my country");
+        await delay(2000);
+        element(by.xpath("html/body/div[5]/div/div/group-finish-init/div[2]/div[1]/div[2]/form/input[3]")).sendKeys("Formed");
+        await delay(2000);
+        element(by.xpath(".//*[@class='btn btn-primary btn-large']")).click();
+        await delay(5000); 
+        element(by.xpath("html/body/div[5]/div/div/group-finish-init/div[2]/div[2]/div/div/p/button")).click();
+        await delay(10000);
+    });
+    Then('VR-0060 Leader checklist is displayed', async () => {
+        element(by.xpath(".//*[@id='leaders-wrapper']/div/div[2]/label")).isDisplayed();
+        await delay(1000);
+        element(by.xpath(".//*[@id='leaders-wrapper']/div/div[3]/label")).isDisplayed();
+        await delay(1000);
+        element(by.xpath(".//*[@id='leaders-wrapper']/div/div[4]/label")).isDisplayed();
+        await delay(1000);
+        element(by.xpath(".//*[@id='leaders-wrapper']/div/div[5]/label")).isDisplayed();
+        await delay(1000);
+        element(by.xpath(".//*[@id='simple-dropdown']/span")).click();
+        await delay(4000);
+        element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[2]")).click();
+        await delay(10000); 
+});
+Then('VR-0070 Account information is displayed', async () => {
+    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[1]/span")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='simple-dropdown']")).click();
+    await delay(4000);
+    element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[4]")).click();
+    await delay(8000);             
+});
+Then('VR-0080 click on ondemand subscription' , async () => {
+    element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/on-demand.html']")).click();
+    await delay(8000);
+    element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[2]/div/a/img")).click();
+    await delay(8000);
+});
+Then('VR-0090 sign in group detail is displayed', async  () => {
+              
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[2]/h1/span")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='product-addtocart-button']")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='item_936']")).click();
+    await delay(5000);
+    element(by.xpath(".//*[@id='product-addtocart-button']")).click();
+    await delay(10000);
+
+});
+Then('VR-0100 Billing information are displayed', async () => { 
+    browser.navigate().refresh();
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+    element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+    await delay(12000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+    await delay(5000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+    await delay(1000);
+    element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+    await delay(2000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+});
+When('VR-0120 click on Entercupon', async () => {
+    await delay(8000);
+    element(by.xpath(".//*[@id='coupons-tax-exempt']/div[1]/strong/a")).click();
+    await delay(10000);
+    element(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]/div[1]/label/input")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]/div[2]/input")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+    await delay(15000);
+
+
+});
+When('VR-0130 order conformation is displayed', async () => {
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]")).isDisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button")).click();
+    await delay(15000);
+});
+Then('VR-0140 subscription information', async () => {
+    element(by.xpath(".//*[@id='simple-dropdown']/span")).click();
+    await delay(4000);
+    element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[2]")).click();
+    await delay(10000); 
+    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div/div/div/div/div[3]/div[2]/modal-link/a/span")).click();
+    await delay(2000);
+    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div/div/div/div/div[3]/div[2]/a")).click();
+    await delay(2000);
+});
+Then('PBP-0080 click on username', async () => {
         element(by.xpath(".//*[@id='account-dropdown-button']")).click();
         await delay(5000);
         element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
         await delay(10000);
         element(by.xpath(".//*[@id='account-nav']/ul/li[1]/strong")).isDisplayed();
         await delay(1000);        
-   });
-   Then('PBP-0080 Account page is displayed', async () => {
+});
+Then('PBP-0080 Account page is displayed', async () => {
         element(by.xpath(".//*[@id='account-nav']/ul/li[2]/a")).click();
         await delay(8000);
         element(by.xpath(".//*[@id='account-nav']/ul/li[2]/a")).isDisplayed();
         await delay(3000);
-   });  
-
+});
+When('PBC-0010 click on pay by check', async () => {
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[1]/div[2]/div/div/select")).click();
+        await delay(4000);
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[1]/div[2]/div/div/select/option[2]")).click();
+        await delay(8000);
+});
+Then('PBC-0020 Billing information are displayed', async () => { 
+    browser.navigate().refresh();
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+    element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+    await delay(12000);
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div/input")).sendKeys("saicharan");
+    await delay(5000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+    await delay(5000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+    await delay(1000);
+    element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[4]/ol/li[5]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+    await delay(1000);
+    element(by.xpath(".//*[@id='U7MSH9A']")).sendKeys("9898985555");
+    await delay(3000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+   
+});
+When('PBC-0030 order conformation is displayed', async () => {
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/header")).isdisplayed();
+    await delay(2000);
+    element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[1]/div/div[1]")).isdisplayed();
+    await delay(6000);
+});
+Then('PBC-0040 click on user dropdown', async () => {
+    element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+    await delay(5000);
+    element(by.xpath(".//*[@id='account-dropdown']/div/a[1]")).click();
+    await delay(10000);
+});
+Then('PBC-0040 on demand supscription is displayed', async () => {
+    element(by.xpath(".//*[@id='account-nav']/ul/li[8]/a")).click();
+    await delay(10000);
+    element(by.xpath(".//*[@id='maincontent']/div[3]/div[1]/div[3]/div/div[1]/div/div[1]/span[2]/a")).isdisplayed();
+    await delay(5000);
+    element(by.xpath(".//*[@id='cancel-ondemand-btn']")).isdisplayed();
+    await delay(5000);
+    element(by.xpath(".//*[@id='maincontent']/div[3]/div[1]/div[3]/div/div[2]/div/div/span[2]/a")).click();
+    await delay(8000);
+    
+});
 
 });
 
