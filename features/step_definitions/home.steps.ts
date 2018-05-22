@@ -567,11 +567,11 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(10000);
 	});	
 	Then('PBP-0020 Read Products page are displayed',async () => {
-		await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img"))).to.eventually.exist;
+		element(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img")).isDisplayed();
         await delay(3000);
-		await expect(browser.findElement(by.xpath(".//*[@id='product__description']/div[1]/p[1]"))).to.eventually.exist;
+		element(by.xpath(".//*[@id='product__description']/div[1]/p[1]")).isDisplayed();
         await delay(3000);
-		await expect(browser.findElement(by.xpath(".//*[@id='related__items']"))).to.eventually.exist;
+		element(by.xpath(".//*[@id='related__items']")).isDisplayed();
         await delay(5000);
 	});
 	When('PBP-0030 click on Add to cart button', async () => {
