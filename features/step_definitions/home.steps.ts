@@ -482,11 +482,11 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('PBP-0060 click on incart icon',async () => {
 	   element(by.xpath(".//*[@class='action showcart']")).click();
        await delay(6000);
-       await expect(browser.findElement(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]"))).to.eventually.exist;
+       element(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]")).isDisplayed();
 	   await delay(3000);
-	   await expect(browser.findElement(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/div"))).to.eventually.exist;
+	   element(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/div")).isDisplayed();
 	   await delay(3000);
-	   await expect(browser.findElement(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/strong[2]"))).to.eventually.exist;
+	   element(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/strong[2]")).isDisplayed();
 	   await delay(3000);
     });      
 	When('PBP-0060 click on title',async () => {
@@ -2062,15 +2062,15 @@ defineSupportCode(function ({Given, Then, When}) {
 	  await delay(10000);
 	});
 	Then('ABP-0070 View details is displayed', async () => {
-	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[1]"))).to.eventually.exist;
+	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[1]")).isDisplayed();
 	  await delay(3000);
-	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[2]"))).to.eventually.exist;
+	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[2]")).isDisplayed();
 	  await delay(3000);
-	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[2]/div[1]"))).to.eventually.exist;
+	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[2]/div[1]")).isDisplayed();
 	  await delay(3000);
-	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[2]"))).to.eventually.exist;
+	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[1]/div[2]")).isDisplayed();
 	  await delay(3000);
-	  await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/span/span"))).to.eventually.exist;
+	  element(by.xpath(".//*[@id='maincontent']/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/span/span")).isDisplayed();
 	  await delay(3000);
     });
     When('LLP-0010 Unlogged user enters home page', async () => {
