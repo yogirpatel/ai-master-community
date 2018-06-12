@@ -1,9 +1,12 @@
-
+import * as chai from 'chai';
+import * as chaiAsPromised from 'chai-as-promised';
+var expects = chai.use(chaiAsPromised).expect;
 import {browser, by, element} from 'protractor';
 import {defineSupportCode, StepDefinitionParam, TableDefinition} from 'cucumber';
 import * as _ from 'lodash';
 import {expect} from '../../support/hooks';
 import { Key } from 'protractor/node_modules/@types/selenium-webdriver';
+import { callbackify } from 'util';
 
 
 defineSupportCode(function ({Given, Then, When}) {
@@ -17,10 +20,45 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(15000);
     });
     Then('navigate to lenlet_cart', async () => {
-        
+        await delay(5000);
         await browser.get("https://market.beta.formed.org/c/lenten_trial");
         await delay(15000);
     })
+    Then('navigate to getbronze', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/getbronze");
+        await delay(15000);
+    });
+    Then('navigate to 7daytrial', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/7daytrial");
+        await delay(15000);
+    });
+    Then('navigate to SoG', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/SoG");
+        await delay(15000);
+    });
+    Then('navigate to BiaY', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/BiaY");
+        await delay(15000);
+    });
+    Then('navigate to getsilver', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/getsilver");
+        await delay(15000);
+    });
+    Then('navigate to getplatinum', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/getplatinum");
+        await delay(15000);
+    });
+    Then('navigate to getgold', async () => {
+        await delay(5000);
+        await browser.get("https://market.beta.formed.org/c/getgold");
+        await delay(15000);
+    });
     When('navigate to formed page', async () => {
         
         element(by.xpath(".//*[@class='icon-formed']")).click();
@@ -46,7 +84,6 @@ defineSupportCode(function ({Given, Then, When}) {
         await expect(browser.getTitle()).to.eventually.contain("FORMED");
         await expect(browser.findElement(by.xpath(".//*[@id='header']/div/div/div/div/global-nav/ul/li[1]/a"))).to.eventually.exist;
         await delay(3000);
- 
     });
     When('navigate to market page', async () => {
         await delay(5000);
@@ -70,7 +107,7 @@ defineSupportCode(function ({Given, Then, When}) {
     When('I click on On Demand page', async () => {
         await delay(8000);
         element(by.xpath(".//a[@href='https://beta.formed.org/']")).click();
-        await delay(15000);
+        await delay(10000);
     });          
 	 When('On Demand page is displayed', async () => {	 
 	    element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/h1")).isDisplayed();
@@ -316,7 +353,7 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('LP-0020 click on library page', async () => {
       element(by.xpath(".//*[@href='https://market.beta.formed.org/mylibrary/']")).click();
-      await delay(15000);
+      await delay(10000);
     });
 	When('SPP-0020 click on the search icon', async () => {
 
@@ -495,7 +532,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	When('PBP-0060 click on incart icon',async () => {
 	   element(by.xpath(".//*[@class='action showcart']")).click();
        await delay(6000);
-       await expect(browser.findElement(by.xpath(".//*[@id='minicart-content-wrapper']/div/h2[1]"))).to.eventually.exist;
+       await expect(browser.findElement(by.xpath(".//*[@id='mini-cart']/li/div[1]/span/img"))).to.eventually.exist;
 	   await delay(3000);
 	   await expect(browser.findElement(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/div"))).to.eventually.exist;
 	   await delay(3000);
@@ -534,15 +571,11 @@ defineSupportCode(function ({Given, Then, When}) {
     When('click on logout button in market',async () => {
         element(by.xpath(".//*[@id='account-dropdown-button']")).click();
         await delay(5000);
-    });
-	Then('PBP-0060 product page is open',async () => {
-        await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div"))).to.eventually.exist;
-        await delay(6000);
 	});
 	When('PBP-0060 click on remove option',async () => {
 	    element(by.xpath(".//*[@id='mini-cart']/li[1]/div[1]/div/div/div/a")).click();
         await delay(5000);
-		await expect(browser.findElement(by.xpath(".//*[@id='ui-id-1']"))).to.eventually.exist;
+		await expect(browser.findElement(by.xpath(".//*[@id='minicart-content-wrapper']/div"))).to.eventually.exist;
 	    await delay(3000);
 	});
 	When('PBP-0060 Click on check out option',async () => {
@@ -581,7 +614,7 @@ defineSupportCode(function ({Given, Then, When}) {
 	});
 	When('PBP-0020 click on the read product', async () => {
         element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img")).click();
-        await delay(15000);
+        await delay(10000);
 	});	
 	Then('PBP-0020 Read Products page are displayed',async () => {
 		await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img"))).to.eventually.exist;
@@ -840,7 +873,7 @@ defineSupportCode(function ({Given, Then, When}) {
       
     Then('i click on market', async () => {
           element(by.xpath(".//a[@href='https://market.beta.formed.org']")).click();
-          await delay(20000);
+          await delay(15000);
     });
         
     When('i click on market from demand', async () => {
@@ -924,18 +957,14 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(3000);
     });
     Then('PBP-0070 Verify the Checkout Page', async () => { 
-        element(by.linkText("Subtotal")).isDisplayed();
-        element(by.linkText("Tax")).isDisplayed();
-        element(by.linkText("Total")).isDisplayed();
-        await delay(1000);
         element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
         await delay(15000);
     });
     Then('PBP-0070 Click on View library', async () => { 
         element(by.xpath(".//*[@class='action primary view-in-library']")).click();
         await delay(12000);
-        element(by.xpath(".//*[@class='download-graphic']")).click();
-        await delay(2000);
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[4]/div/ol/li/div/div/a/img")).click();
+        await delay(8000);
 
     });
     Then('PBP-0070 Order Confirmation is displayed for Group', async () => {         
@@ -1005,7 +1034,11 @@ defineSupportCode(function ({Given, Then, When}) {
     Then('CPS-0030 get credits plan link is displayed', async () => {      
      await expect(browser.findElement(by.xpath(".//*[@id='offer-dt']/p[4]/a/button"))).to.eventually.exist;
      await delay(10000);
-    });     
+    }); 
+    Then('PBP-0070 View in library is displayed', async () => {      
+     await expect(browser.findElement(by.xpath(".//*[@id='product-viewinlibrary-button']"))).to.eventually.exist;
+     await delay(10000);
+    });
     When('i click on user name drop down', async () => {  
        element(by.xpath(".//*[@id='account-dropdown-button']")).click();
        await delay(10000);
@@ -1251,6 +1284,10 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("//a[@href='.//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img']")).isDisplayed();
         element(by.xpath("//a[@href='.//*[@id='amasty-shopby-product-list']/h1']")).isDisplayed();
         await delay(2000);
+    });
+    Then('click on product', async () => {
+        element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[3]/div/a/img")).click();
+        await delay(10000);
     });
     Then('click on product', async () => {
         element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[8]/div/a/img")).click();
@@ -1606,7 +1643,7 @@ defineSupportCode(function ({Given, Then, When}) {
     }); 
     Then('Click on Add to cart', async () => {        
         element(by.xpath(".//*[@id='product-addtocart-button']")).click();    
-        await delay(15000);
+        await delay(10000);
     }); 
     Then('Add to cart success message is displayed', async () => {        
         element(by.linkText("You added 1Year FORMED On Demand Gift Subscription to your shopping cart.")).isDisplayed();    
@@ -1617,7 +1654,7 @@ defineSupportCode(function ({Given, Then, When}) {
     }); 
     Then('Click on Checkout in Cart Summary', async () => {       
         element(by.xpath(".//*[@id='top-cart-btn-checkout']")).click(); 
-        await delay(25000);   
+        await delay(20000);   
     });
     When('Click on Create Account', async () => {        
         element(by.xpath(".//*[@id='register_modal_trigger']")).click(); 
@@ -2142,7 +2179,7 @@ defineSupportCode(function ({Given, Then, When}) {
     When('LLP-0040 When click on Forgot Password', async  () => {
         await delay(2000); 
         element(by.xpath(".//*[@id='gigya-login-screen']/form/div/div[3]/a")).click();
-        await delay(5000);
+        await delay(2000);
     });
     Then('LLP-0040 Prompt is displayed to enter email', async  () => {
               
@@ -2347,16 +2384,20 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     Then('PAP-0010 Audio dramas page is displayed', async () => {
              
-        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/h1"))).to.eventually.exist;
+        await expect(browser.findElement(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img"))).to.eventually.exist;
         await delay(2000);
     });
     When('PAP-0020 i click on Item', async () => {
          
         element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img")).click();
-        await delay(10000);
+        await delay(5000);
     });
     Then('PAP-0020 Product detailed page is displayed', async () => {     
         await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[4]/div[2]/h1/span"))).to.eventually.exist;
+        await delay(3000);
+        await expect(browser.findElement(by.xpath(".//*[@id='options-803-list']/div/label"))).to.eventually.exist;
+        await delay(3000);
+        await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[5]/div[1]/div[1]/div/img"))).to.eventually.exist;
         await delay(3000);
     
     });
@@ -2581,7 +2622,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(2000);
         await expect(browser.findElement(by.xpath(".//*[@id='product-addtocart-button']"))).to.eventually.exist;
         await delay(2000);
-        element(by.xpath(".//*[@id='item_932']")).click();
+        element(by.xpath(".//*[@id='product-options-wrapper']/div/div[1]/div/label")).click();
         await delay(5000);
         element(by.xpath(".//*[@id='product-addtocart-button']")).click();
         await delay(10000);
@@ -2653,7 +2694,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(5000);
         element(by.xpath(".//*[@id='group-subscription-organization-select']/option[6]")).click();
         await delay(5000);
-        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+        element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[4]/div[2]/div/button")).click();
         await delay(15000);
     });
     When('VR-0050 order conformation is displayed', async () => {
@@ -2677,7 +2718,7 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("html/body/div[5]/div/div/group-finish-init/div[2]/div[2]/div/div/p/button")).click();
         await delay(10000);
     });
-Then('VR-0060 Leader checklist is displayed', async () => {
+    Then('VR-0060 Leader checklist is displayed', async () => {
         await expect(browser.findElement(by.xpath(".//*[@id='leaders-wrapper']/div/div[2]/label"))).to.eventually.exist;
         await delay(1000);
         await expect(browser.findElement(by.xpath(".//*[@id='leaders-wrapper']/div/div[3]/label"))).to.eventually.exist;
@@ -2691,23 +2732,23 @@ Then('VR-0060 Leader checklist is displayed', async () => {
         element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[2]")).click();
         await delay(10000); 
     });
-Then('VR-0070 Account information is displayed', async () => {
-    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[1]/span"))).to.eventually.exist;
-    await delay(2000);
-    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a"))).to.eventually.exist;
-    await delay(2000);
-    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a"))).to.eventually.exist;
-    await delay(2000);
-    element(by.xpath(".//*[@id='simple-dropdown']")).click();
-    await delay(4000);
-    element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[3]")).click();
-    await delay(8000);             
+    Then('VR-0070 Account information is displayed', async () => {
+      await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[1]/span"))).to.eventually.exist;
+      await delay(2000);
+      await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a"))).to.eventually.exist;
+      await delay(2000);
+      await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div/div[3]/div[2]/a"))).to.eventually.exist;
+      await delay(2000);
+      element(by.xpath(".//*[@id='simple-dropdown']")).click();
+      await delay(4000);
+      element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[3]")).click();
+      await delay(8000);             
   });
-Then('VR-0080 click on ondemand subscription' , async () => {
-    element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/on-demand.html']")).click();
-    await delay(10000);
-    element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[2]/div/a/img")).click();
-    await delay(8000);
+   Then('VR-0080 click on ondemand subscription' , async () => {
+      element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/on-demand.html']")).click();
+      await delay(10000);
+      element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[2]/div/a/img")).click();
+      await delay(8000);
 });
 Then('VR-0090 sign in group detail is displayed', async  () => {
     
@@ -2749,8 +2790,6 @@ When('VR-0120 click on Entercupon', async () => {
     await delay(2000);
     element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
     await delay(15000);
-
-
 });
 When('VR-0130 order conformation is displayed', async () => {
     await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[3]/button"))).to.eventually.exist;
@@ -2770,5 +2809,199 @@ Then('VR-0140 subscription information', async () => {
     element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div/div/div/div/div[3]/div[2]/a")).click();
     await delay(2000);
 
+});
+Then('ICO-0020 Billing information are displayed in incart', async () => { 
+    browser.navigate().refresh();
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+    element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+    await delay(12000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+    await delay(5000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+    await delay(1000);
+    element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+    await delay(1000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+});
+Then('ICO-0020 Verify the Checkout Page', async () => { 
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+    await delay(15000);
+});
+When('ICO-0010 instant page is displayed', async () => {
+    await delay(1000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div/div[1]/div/h1"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div/div[1]/div/img"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='gigya-register-screen']/form/div[2]/div[6]/input[1]"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('ICO-0030 order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[3]/button"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('ICO-0040 7 days free trial page is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div/div[1]/div/div/p[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='gigya-register-screen']/form/div[2]/div[6]/input[1]"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('getbronze order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[1]"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('getsilver order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[3]/div[3]/button"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('getgold order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@class='counter amount']"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('getplatinum order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@class='counter amount']"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('SoG order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[3]/button"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('BiaY order conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[3]/button"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('7daytrial conformation is displayed', async () => { 
+    await delay(3000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[2]/div[4]/div[1]/div[3]/button"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('BiYa Verify the Checkout Page', async () => { 
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div/div[6]/div/button")).click();
+    await delay(15000);
+});
+Then('BiaY Billing information are displayed in incart', async () => { 
+    browser.navigate().refresh();
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+    element(by.css("html body.checkout-index-index.page-layout-1column main.formed__container.logged__in div.page-wrapper main#maincontent.page-main div.columns div.column.main div#checkout.checkout-container div.opc-wrapper ol#checkoutSteps.opc li#payment.checkout-payment-method div#checkout-step-payment.step-content form#co-payment-form.form.payments fieldset.fieldset div#checkout-payment-method-load.opc-payment div.items.payment-methods div.payment-group div.payment-method.custom-cybersource._active div.payment-method-content div div.payment-method-billing-address div.checkout-billing-address fieldset.fieldset div.billing-address-form form div#billing-new-address-form.fieldset.address fieldset.field.street.admin__control-fields.required div.control div.field._required div.control")).click();
+    await delay(12000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div/div[1]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+    await delay(5000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[4]/div")).click();
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div/div[1]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+    await delay(1000);
+    element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div/div[1]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div/div[1]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[3]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div/div[1]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+    await delay(1000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[9]/div/button[1]")).click();
+    await delay(5000);
+});
+Then('click on ondemand subscription' , async () => {
+    element(by.xpath("//a[@href='https://market.beta.formed.org/shop-products/formed-subscriptions/on-demand.html']")).click();
+    await delay(10000);
+    element(by.xpath(".//*[@id='amasty-shopby-product-list']/div[3]/ol/li[1]/div/a/img")).click();
+    await delay(8000);
+});
+When('PBC-0010 click on pay by check' , async () => {
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[1]/div[2]/div/div/select")).click();
+    await delay(5000);
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[1]/div[2]/div/div/select/option[2]")).click();
+    await delay(10000);
+});
+When('PBC-0030 order conformation is displayed', async () => {
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/img[1]"))).to.eventually.exist;
+    await delay(2000);
+    await expect(browser.findElement(by.xpath(".//*[@id='maincontent']/div[2]/div/div[3]/div[1]/div[4]/div[1]/div[2]/div[2]/div[2]/span[1]/span"))).to.eventually.exist;
+    await delay(2000);
+});
+Then('PBC-0020 Billing information are displayed', async () => { 
+
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[2]/div/input")).sendKeys("Hulk");
+    await delay(5000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/fieldset/div/div[1]/div/input")).sendKeys("Chicago illonois");
+    await delay(5000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/div[4]/div/input")).sendKeys("Chicago");
+    await delay(1000);
+    element(by.css("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/div[5]/div/select")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/div[5]/div/select/option[13]")).click();
+    await delay(1000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/div[9]/div/input")).sendKeys("9898985555");
+    await delay(3000);
+    element(by.xpath("html/body/main/div/main/div[3]/div/div[3]/div[5]/ol/li[5]/div/form/fieldset/div[1]/div/div[2]/div[2]/div[2]/div[3]/div/fieldset/div[2]/form/div/div[7]/div/input")).sendKeys("60014");
+    await delay(1000);
+    element(by.xpath(".//*[@id='billing-new-address-form']/div[10]/div/button[1]")).click();
+    await delay(5000);
+});
+When('click on ondemand page', async () => { 
+    element(by.xpath("//a[@href='https://beta.formed.org/']")).click();
+    await delay(15000);
+});
+When('click on login user in ondemand page', async () => { 
+    await delay(3000);
+    element(by.xpath(".//*[@id='simple-dropdown']/i")).click();
+    await delay(5000);
+    element(by.xpath(".//*[@id='header']/div/div/div/div/ul/profile-menu/div/div/div/div/div[2]/a[2]")).click();
+    await delay(10000);
+});
+When('subscription information is displayed', async () => {
+    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div[2]/div/div[1]"))).to.eventually.exist;
+    await delay(5000);
+    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div[1]/div[1]/a"))).to.eventually.exist;
+    await delay(5000);
+    await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[1]/div/div/div[2]/div/div[2]/div/modal-link/a/span"))).to.eventually.exist;
+    await delay(5000);
+});
+When('parish admin code is not present', async () => {
+    //element.all(by.xpath(".//*[@id='parishCode']")).then(function(items) {
+      //  expect(items.length).toBe(0);
+    //});
+   // element.all(by.css('.k-loading-image')).then(function(items) {
+     //   expect(items.length).to.be.true;
+    //});
+    expect(element(by.xpath(".//*[@id='parishCode']")).isDisplayed()).toBe(false);
+    await delay(5000);
+    //element.all(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/div/div/div[1]")).then(function(items) {
+      //  expect(items.length).toBe(0);
+    //});
+    //await expect(element(by.xpath(".//*[@id='scroll-top']/div/div/div[1]/div[2]/div/div/div[1]")).isDisplayed()).to.equal(false);
+    //await delay(5000);
+    
+});
+When('click on Dashboard', async () => {
+    element(by.xpath(".//*[@id='account-dropdown-button']")).click();
+    await delay(5000);
+    element(by.xpath(".//*[@id='account-dropdown']/div/a[3]")).click();
+    await delay(15000);
 });
 });
