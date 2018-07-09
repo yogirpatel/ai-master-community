@@ -33,7 +33,9 @@ export let config: Config = {
    // seleniumArgs: ['-Dwebdriver.ie.driver=C:\Users\Yogi\ai-testing-master\node_modules\webdriver-manager\selenium\IEDriverServer.exe'],
     
     capabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        'shardTestFiles': true,
+         'maxInstances': 1
     },
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
