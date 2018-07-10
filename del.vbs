@@ -6,7 +6,7 @@ ReDim mostRecent(n-1)
 
 Set fso = CreateObject("Scripting.FileSystemObject")
 For Each f In fso.GetFolder(fldr).Files
-  If fso.GetExtensionName(f) = "feature" Then
+    If fso.GetExtensionName(f) = "html" Then
     For i = 0 To n-1
       If IsEmpty(mostRecent(i)) Then
         Set mostRecent(i) = f
