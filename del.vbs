@@ -1,7 +1,7 @@
 n    = 10 'number of files to keep
 Set WshShell = CreateObject("WScript.Shell")
 strCurDir    = WshShell.CurrentDirectory
-fldr = strCurDir + "\del\"
+fldr = strCurDir + "\	archive-Reports\"
 ReDim mostRecent(n-1)
 
 Set fso = CreateObject("Scripting.FileSystemObject")
