@@ -1911,17 +1911,17 @@ Then('SPP-0050 collapse attributes',async () => {
 });
 When('TS-0010 click on product in movies link', async () => {
     element(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[6]/div/a/img")).click();
-    await delay(12000);
+    await delay(8000);
     await expect(browser.findElement(by.xpath(".//*[@id='movie-title']/h1"))).to.eventually.exist;
-    await delay(3000);
+    await delay(1000);
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a"))).to.eventually.exist;
-    await delay(3000);
+    await delay(1000);
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[2]/a"))).to.eventually.exist;
-	await delay(3000);
+	await delay(1000);
     element(by.xpath(".//*[@id='oo-responsive']/div/div[1]/a")).click();
 	await delay(15000);
     element(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a")).click();
-    await delay(25000);
+    await delay(15000);
 });
 Then('TS-0020 share model dialog page is displayed', async () => {
     await expect(browser.findElement(by.xpath(".//*[@id='simple-dropdown']"))).to.eventually.exist;
