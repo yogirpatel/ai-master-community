@@ -23,6 +23,7 @@ Feature: This file Login logout page
   Then LLP-0080 Subscription, Parish, Payment information are displayed 
   When LLP-0110 Click on dashboard in username drop down
   When LLP-0120 Click on logout button
+  Then I navigate to "/"
   When LLP-0050 Click on username drop down for individual user
   Then LLP-0050 Account, Subscription, logout are displayed
   When LLP-0100 Click on Subscription for individual user
