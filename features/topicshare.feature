@@ -9,6 +9,7 @@ Feature: Topic shares
 
   # from at document
   Scenario: Topic shares
+  Then TS-0130 click on video product ondemand page without user
   Then LPA-0010 click on login button
   When LPA-0010 Enter Parish Admin Name and password
   When Watch link is hovered
@@ -32,6 +33,11 @@ Feature: Topic shares
   Then TS-0110 click on topicshares in on demand page
   Then TS-0110 Your Evangelization Impact are displayed
   Then TS-0050 click on play button
+  Then i click on account and logout for parish
+  
+
+
+  
 
 
 
