@@ -357,7 +357,7 @@ Then('PBP-0070 Enter Payment Method', async () => {
 	await delay(3000);
 });
 Then('PBP-0070 Verify the Checkout Page', async () => { 
-	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
 	await delay(15000);
 });
 Then('PBP-0070 Click on View library', async () => { 
@@ -490,7 +490,7 @@ Then('CPS-0060 Enter Payment Method', async () => {
 	await delay(1000);
 	element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("222");
 	await delay(1000);
-	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
 	await delay(10000);
 });
 When('i click on user name drop down', async () => {  
@@ -514,7 +514,7 @@ Then('CO-0080 Enter CVV', async () => {
 	await delay(5000);
 	element(by.xpath(".//*[@id='magedelight_cybersource_cc_cid']")).sendKeys("222");
 	await delay(2000);
-	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
 	await delay(10000);
 });
 When('click on watch document product', async () => {
@@ -1087,7 +1087,7 @@ When('VR-0030 Choose organization', async () => {
 	await delay(5000);
 	element(by.xpath(".//*[@id='group-subscription-organization-select']/option[6]")).click();
 	await delay(5000);
-	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[4]/div[2]/div/button")).click();
+	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[4]/div[3]/div/button")).click();
 	await delay(15000);
 });
 When('VR-0040 Choose organization', async () => {
@@ -1099,7 +1099,7 @@ When('VR-0040 Choose organization', async () => {
 	await delay(5000);
 	element(by.xpath(".//*[@id='group-subscription-organization-select']/option[6]")).click();
 	await delay(5000);
-	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+	element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
 	await delay(15000);
 });
 When('VR-0050 order conformation is displayed', async () => {
@@ -1191,7 +1191,7 @@ await expect(browser.findElement(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]
 await delay(2000);
 await expect(browser.findElement(by.xpath(".//*[@id='coupons-tax-exempt']/div[2]/div[2]/input"))).to.eventually.exist;
 await delay(2000);
-element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
 await delay(15000);
 });
 When('VR-0130 order conformation is displayed', async () => {
@@ -1429,7 +1429,7 @@ Then('navigate to getgold', async () => {
 	await delay(15000);
 });
 Then('ICO-0020 Verify the Checkout Page', async () => { 
-    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[5]/div/button")).click();
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div[2]/div[2]/div[6]/div/button")).click();
     await delay(15000);
 });
 When('ICO-0010 instant page is displayed', async () => {
@@ -1514,7 +1514,7 @@ Then('7daytrial conformation is displayed', async () => {
     await delay(2000);
 });
 Then('BiYa Verify the Checkout Page', async () => { 
-    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div/div[6]/div/button")).click();
+    element(by.xpath(".//*[@id='checkout-payment-method-load']/div/div[2]/div[2]/div/div[7]/div/button")).click();
     await delay(15000);
 });
 Then('BiaY Billing information are displayed in incart', async () => { 
@@ -1760,7 +1760,7 @@ Then('i click on account and logout for parish', async () => {
 	await delay(5000);
 	element(by.xpath(".//*[@id='simple-dropdown']/span")).click();
 	await delay(4000);
-	element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[]")).click();
+	element(by.xpath(".//*[@id='header']/div/div[1]/div/div/ul/profile-menu/div/div/div/div/div[2]/a[3]")).click();
 	await delay(5000);
 });      
 When('LLP-0020 Click on Login button', async  () => {
@@ -1911,17 +1911,17 @@ Then('SPP-0050 collapse attributes',async () => {
 });
 When('TS-0010 click on product in movies link', async () => {
     element(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[6]/div/a/img")).click();
-    await delay(8000);
+    await delay(12000);
     await expect(browser.findElement(by.xpath(".//*[@id='movie-title']/h1"))).to.eventually.exist;
     await delay(1000);
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a"))).to.eventually.exist;
     await delay(1000);
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[2]/a"))).to.eventually.exist;
-	await delay(1000);
+    await delay(1000);
     element(by.xpath(".//*[@id='oo-responsive']/div/div[1]/a")).click();
 	await delay(15000);
-    element(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a")).click();
-    await delay(15000);
+	element(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a")).click();
+    await delay(10000);
 });
 Then('TS-0020 share model dialog page is displayed', async () => {
     await expect(browser.findElement(by.xpath(".//*[@id='simple-dropdown']"))).to.eventually.exist;
@@ -1930,7 +1930,6 @@ Then('TS-0020 share model dialog page is displayed', async () => {
     await delay(3000);
     await expect(browser.findElement(by.xpath("html/body/div[5]/div/div/topic-share/div[1]/form/div[2]/input"))).to.eventually.exist;
 	await delay(3000);
-	
 	element(by.xpath("html/body/div[5]/div/div/topic-share/div[1]/form/div[2]/input")).sendKeys("formed");
 	await delay(1000);
 	element(by.xpath(".//*[@id='topicComment']")).sendKeys("share model dialog page is displayed");
@@ -2003,5 +2002,10 @@ When('TS-0120 comments and rating are displayed', async () => {
     await delay(1000);
 	await expect(browser.findElement(by.xpath(".//*[@class='col-sm-6 commentary hidden-sm']"))).to.eventually.exist;
 	await delay(1000);
+});
+Then('TS-0130 click on video product ondemand page without user', async () => {
+	await delay(15000);
+	element(by.xpath(".//*[@id='scroll-top']/div/div/trending-topics/div[2]/div/div/div/div/div[5]/a/div/div/div[2]/div")).click();
+	await delay(5000);
 });
 });
