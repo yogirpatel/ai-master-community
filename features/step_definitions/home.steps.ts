@@ -1919,7 +1919,7 @@ When('TS-0010 click on product in movies link', async () => {
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[2]/a"))).to.eventually.exist;
     await delay(1000);
     element(by.xpath(".//*[@id='oo-responsive']/div/div[1]/a")).click();
-	await delay(250000);
+	await delay(25000);
 	element(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a")).click();
     await delay(10000);
 });
@@ -1931,9 +1931,9 @@ Then('TS-0020 share model dialog page is displayed', async () => {
     await expect(browser.findElement(by.xpath("html/body/div[5]/div/div/topic-share/div[1]/form/div[2]/input"))).to.eventually.exist;
 	await delay(3000);
 	element(by.xpath("html/body/div[5]/div/div/topic-share/div[1]/form/div[2]/input")).sendKeys("formed");
-	await delay(1000);
+	await delay(2000);
 	element(by.xpath(".//*[@id='topicComment']")).sendKeys("share model dialog page is displayed");
-	await delay(1000);
+	await delay(2000);
 	element(by.xpath("html/body/div[5]/div/div/topic-share/div[1]/form/input")).click();
 	await delay(15000);
 });
