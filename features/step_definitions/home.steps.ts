@@ -1919,7 +1919,7 @@ When('TS-0010 click on product in movies link', async () => {
     await expect(browser.findElement(by.xpath(".//*[@id='social-icons']/share/div/div/span[2]/a"))).to.eventually.exist;
     await delay(1000);
     element(by.xpath(".//*[@id='oo-responsive']/div/div[1]/a")).click();
-	await delay(15000);
+	await delay(250000);
 	element(by.xpath(".//*[@id='social-icons']/share/div/div/span[1]/a")).click();
     await delay(10000);
 });
