@@ -19,7 +19,7 @@ export const expect:any = chai.expect;
 
 
 defineSupportCode(function ({registerHandler, registerListener, After,Before, setDefaultTimeout}) {
-    setDefaultTimeout(50 * 1000);
+    setDefaultTimeout(100 * 1000);
  
     let jsonReports = process.cwd() + "/reports/json";
     let htmlReports = process.cwd() + "/reports/html";
