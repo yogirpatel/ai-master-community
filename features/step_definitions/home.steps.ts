@@ -62,7 +62,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[5]/div/a/img"))).to.eventually.exist;
         await delay(2000);
         element(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[5]/div/a/img")).click();
-        await delay(20000);
+        await delay(25000);
     });
     Then('FCM-0030 One-click custom content wording modification is displayed', async  () =>{
         await expect(browser.findElement(by.xpath(".//*[@id='description']/custom-content-creator/div/div/modal-link/a/span"))).to.eventually.exist;
@@ -277,11 +277,11 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('FCM-0070 click on NEW button', async () =>{
         element(by.xpath("html/body/main/div[1]/div[1]/div/div[2]/div/div/div[2]/custom-content-tab/div/div/div[3]/div/div[2]/span/a")).click();
-        await delay(3000);
+        await delay(5000);
         await expect(browser.findElement(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[1]/modal-link/a/span"))).to.eventually.exist;
-        await delay(1000);
+        await delay(3000);
         await expect(browser.findElement(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[2]/modal-link/a/span"))).to.eventually.exist;
-        await delay(10000);
+        await delay(15000);
     });
 });
     
