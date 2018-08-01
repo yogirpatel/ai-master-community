@@ -98,7 +98,7 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("html/body/div[5]/div/div/div[2]/div[3]/a")).click();
         await delay(5000);
     });
-    When('FCM-0050 clcik on Select group then Click on Add session buton', async () =>{
+    When('FCM-0050 click on Select group then Click on Add session buton', async () =>{
         element(by.xpath(".//*[@id='discussionSelect']")).click();
         await delay(5000);
         element(by.xpath("html/body/div[5]/div/div/div[2]/div/span/div/ul/li[2]/div")).click();
@@ -157,7 +157,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(5000);
         element(by.xpath("/html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/name-and-description/div[2]/ng-quill-editor/div/div/div[1]")).sendKeys("formed.org");
         await delay(5000);
-        element(by.xpath("/html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/media-type-selector/div/div/div[2]/div[1]/div[2]/div")).clcik();
+        element(by.xpath("/html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/media-type-selector/div/div/div[2]/div[1]/div[2]/div")).click();
         await delay(8000);
         element(by.xpath("html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/media-embed/div[2]/div[2]/div/textarea")).sendKeys("https player vimeo.com/video/273353406?color=27b9fc&title=0&byline=0&po width=6400 height=360 frameborder=0 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>FORMED Topic Sharing from <a href=https:vimeo.com/formedcatholic");
         await delay(8000);
