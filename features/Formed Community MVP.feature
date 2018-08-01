@@ -7,7 +7,7 @@ Feature: This file will test the Formed Community MVP
     Given I navigate to "/"
 
   # from at document
-  Scenario: FORMED Landing Page
+  Scenario: create a feature using 1-click custom content for a Movie
   When navigate to Community page
   Then Enter parish username and password
   When FCM-0010 click on dashboard
