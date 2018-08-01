@@ -22,7 +22,7 @@ Feature: This file will test the Formed Community MVP
   When FCM-0030 click on movie product in parish admin
   Then FCM-0030 One-click custom content wording modification is displayed
   Then FCM-0050 click on Add session to existing discussion group button
-  When FCM-0050 clcik on Select group then Click on Add session buton
+  When FCM-0050 click on Select group then Click on Add session buton
   Then FCM-0050 session added successfully and Viewgroup and view later meaasges are displayed
   When Watch link is hovered
   When FCM-0030 click on movie product in parish admin
@@ -44,10 +44,10 @@ Feature: This file will test the Formed Community MVP
   When FCM-0160 click on New comment
   Then click on logout button in community page with parish user
   When navigate to Community page
-  Then LLP-0050 Click on username drop down for individual user
+  Then LLP-0050 click on username drop down for individual user
   Then FCM-0170 individual user community page is displayed
   When click on logout button in community page individual user
-  When FCM-0180 Click on username drop down for parish user but northing published
+  When FCM-0180 click on username drop down for parish user but northing published
   When navigate to Community page
   Then FCM-0180 community page is displayed
   Then click on log out for parish user but northing published
