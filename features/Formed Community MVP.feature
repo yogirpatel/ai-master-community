@@ -44,10 +44,10 @@ Feature: This file will test the Formed Community MVP
   When FCM-0160 click on New comment
   Then click on logout button in community page with parish user
   When navigate to Community page
-  Then LLP-0050 click on username drop down for individual user
+  Then LLP-0050 Click on username drop down for individual user
   Then FCM-0170 individual user community page is displayed
   When click on logout button in community page individual user
-  When FCM-0180 click on username drop down for parish user but northing published
+  When FCM-0180 Click on username drop down for parish user but northing published
   When navigate to Community page
   Then FCM-0180 community page is displayed
   Then click on log out for parish user but northing published
