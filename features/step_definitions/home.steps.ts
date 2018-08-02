@@ -54,7 +54,7 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('Watch link is hovered', async () => {
         browser.actions().mouseMove(element(by.xpath("//a[@href='/watch']"))).perform();
-        await delay(12000);
+        await delay(5000);
     });
     When('FCM-0030 click on movie product in parish admin', async  () => {
         element(by.xpath(".//*[@id='header']/div/div[3]/div/main-nav/ul/li[2]/segmented-menu-item/div/segmented-links/div/div[1]/a")).click();
@@ -62,7 +62,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await expect(browser.findElement(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[5]/div/a/img"))).to.eventually.exist;
         await delay(2000);
         element(by.xpath(".//*[@id='scroll-top']/div/segmented-page/div/div[1]/segment/div[3]/div/stripe/div/div/div/div/div/div/div/div[5]/div/a/img")).click();
-        await delay(25000);
+        await delay(20000);
     });
     Then('FCM-0030 One-click custom content wording modification is displayed', async  () =>{
         await expect(browser.findElement(by.xpath(".//*[@id='description']/custom-content-creator/div/div/modal-link/a/span"))).to.eventually.exist;
@@ -98,7 +98,7 @@ defineSupportCode(function ({Given, Then, When}) {
         element(by.xpath("html/body/div[5]/div/div/div[2]/div[3]/a")).click();
         await delay(5000);
     });
-    When('FCM-0050 click on Select group then Click on Add session buton', async () =>{
+    When('FCM-0050 clcik on Select group then Click on Add session buton', async () =>{
         element(by.xpath(".//*[@id='discussionSelect']")).click();
         await delay(5000);
         element(by.xpath("html/body/div[5]/div/div/div[2]/div/span/div/ul/li[2]/div")).click();
@@ -114,7 +114,7 @@ defineSupportCode(function ({Given, Then, When}) {
         await expect(browser.findElement(by.xpath("html/body/div[5]/div/div/div[2]/div/div[3]/a[2]"))).to.eventually.exist;
         await delay(2000);
         element(by.xpath("html/body/div[5]/div/div/div[2]/div/div[3]/a[1]")).click();
-        await delay(3000);
+        await delay(10000);
     });
     Then('FCM-0060 click on feature content', async () =>{
         element(by.xpath("html/body/div[5]/div/div/div[2]/div[2]/div/div[1]/div[1]")).click();
@@ -157,8 +157,6 @@ defineSupportCode(function ({Given, Then, When}) {
         await delay(5000);
         element(by.xpath("/html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/name-and-description/div[2]/ng-quill-editor/div/div/div[1]")).sendKeys("formed.org");
         await delay(5000);
-        element(by.xpath("/html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/media-type-selector/div/div/div[2]/div[1]/div[2]/div")).click();
-        await delay(8000);
         element(by.xpath("html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[1]/div/div[2]/div/manage-sessions-view/form/media-embed/div[2]/div[2]/div/textarea")).sendKeys("https player vimeo.com/video/273353406?color=27b9fc&title=0&byline=0&po width=6400 height=360 frameborder=0 webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>FORMED Topic Sharing from <a href=https:vimeo.com/formedcatholic");
         await delay(8000);
         element(by.xpath("html/body/div[5]/div/div/promo-unit-modal/div[3]/create-group-view/div[2]/button")).click();
@@ -277,11 +275,27 @@ defineSupportCode(function ({Given, Then, When}) {
     });
     When('FCM-0070 click on NEW button', async () =>{
         element(by.xpath("html/body/main/div[1]/div[1]/div/div[2]/div/div/div[2]/custom-content-tab/div/div/div[3]/div/div[2]/span/a")).click();
-        await delay(5000);
-        await expect(browser.findElement(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[1]/modal-link/a/span"))).to.eventually.exist;
         await delay(3000);
+        await expect(browser.findElement(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[1]/modal-link/a/span"))).to.eventually.exist;
+        await delay(1000);
         await expect(browser.findElement(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[2]/modal-link/a/span"))).to.eventually.exist;
-        await delay(15000);
+        await delay(1000);
+        element(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[1]/modal-link/a/span")).click();
+        await delay(10000);
+        await expect(browser.findElement(by.xpath("html/body/div[5]/div/div/promo-unit-modal/div[3]/create-feature-view/form/input"))).to.eventually.exist;
+        await delay(5000)
     });
+    When('FCM-0070 click on Group in New button', async () =>{
+      element(by.xpath("html/body/div[5]/div/div/promo-unit-modal/a/i")).click();
+      await delay(3000);
+      element(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[1]/modal-link/a/span")).click();
+      await delay(10000);
+      element(by.xpath("html/body/main/div[1]/div[1]/div/div[2]/div/div/div[2]/custom-content-tab/div/div/div[3]/div/div[2]/span/a")).click();
+      await delay(8000);
+      element(by.xpath(".//*[@id='workspace']/div/div[2]/span/div/ul/li[2]/modal-link/a/span")).click();
+      await delay(8000);
+     element(by.xpath("html/body/div[5]/div/div/promo-unit-modal/a/i")).click();
+     await delay(5000);
+});
 });
     
